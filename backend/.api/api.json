@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "ziina",
+      "source": "@ziina/v1.0#1bvyslran4bd8",
+      "integrity": "sha512-zX8GZ9tEndxoxJKMZ93W2OabIiGgL8AbL3WNiQ4hyuswWuZdeDhVM+rIeNt2nSNU8H1gr8bNANwdf/+y2+cWZA==",
+      "installerVersion": "6.1.1"
+    }
+  ]
+}
