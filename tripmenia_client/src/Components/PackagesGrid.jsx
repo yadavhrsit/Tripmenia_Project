@@ -14,7 +14,7 @@ function PackagesGrid({
     async function fetchData() {
       try {
         const response = await fetch(
-          `http://localhost:5000/packages/view/${categoryId}`
+          `http://13.233.157.42:5000/packages/view/${categoryId}`
         );
         const data = await response.json();
      
@@ -55,7 +55,7 @@ function PackagesGrid({
               packageName={pckg.packageName || "Package Name"}
               price={pckg.price || 1000}
               discount={pckg.discount || 55}
-              image={`http://localhost:5000/upload/${pckg.images[0]}`}
+              image={`http://13.233.157.42:5000/upload/${pckg.images[0]}`}
               specialPrice={pckg.specialPrice || 500}
               packageId={pckg._id}
             />
