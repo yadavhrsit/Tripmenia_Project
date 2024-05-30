@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.96498546.css",
+    "main.js": "/static/js/main.e31d9ab4.js",
+    "static/media/banner.jpg": "/static/media/banner.6b3015bfebd16622257b.jpg",
+    "static/media/bodyBottomBanner.webp": "/static/media/bodyBottomBanner.0b9f97f1a0d51a99779c.webp",
+    "static/media/bodyBanner.webp": "/static/media/bodyBanner.e3f47a72d2b42512ecef.webp",
+    "static/media/logo.png": "/static/media/logo.051834fe64baea4388d5.png",
+    "static/media/google-pay.png": "/static/media/google-pay.513949a8dc825506ae02.png",
+    "static/media/mastercard.png": "/static/media/mastercard.263781d32069f446c3a3.png",
+    "static/media/whatsapp.png": "/static/media/whatsapp.61af9037ce0d5bdb81e0.png",
+    "static/media/questions.webp": "/static/media/questions.ada57d8876c5081ebf62.webp",
+    "static/media/google-rating.webp": "/static/media/google-rating.0c55cbed913ec05adfc0.webp",
+    "static/media/tripadvisor.webp": "/static/media/tripadvisor.379ee373dd4a82ec912f.webp",
+    "index.html": "/index.html",
+    "main.96498546.css.map": "/static/css/main.96498546.css.map",
+    "main.e31d9ab4.js.map": "/static/js/main.e31d9ab4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.96498546.css",
+    "static/js/main.e31d9ab4.js"
+  ]
+}
