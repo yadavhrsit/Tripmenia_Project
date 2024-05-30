@@ -17,7 +17,7 @@ function CategoryFilter({
     async function fetchData() {
       try {
         const response = await axios.get(
-          "http://13.233.157.42:5000/categories/view"
+          "http://localhost:5000/categories/view"
         );
         setCategories(response.data);
       } catch (error) {

@@ -17,7 +17,7 @@ function Home() {
       if (selectedCategory === null) {
         try {
           const response = await fetch(
-            "http://13.233.157.42:5000/categories/view/"
+            "http://localhost:5000/categories/view/"
           );
           const data = await response.json();
           setCategories(data);
@@ -27,7 +27,7 @@ function Home() {
       } else {
         try {
           const response = await fetch(
-            `http://13.233.157.42:5000/packages/view/${selectedCategory}`
+            `http://localhost:5000/packages/view/${selectedCategory}`
           );
           const data = await response.json();
           setPackage(data);
