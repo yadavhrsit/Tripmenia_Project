@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link,useLocation,useNavigate } from "react-router-dom";
-import logo from "../assets/gulfania-logo.webp";
+import logo from "../assets/logo.png";
 import { IoSearch } from "react-icons/io5";
 import Sidebar from "./Sidebar";
 import axios from "axios";
@@ -29,7 +29,7 @@ function Header() {
     setSearch(e.target.value);
     if (e.target.value) {
       const response = await axios.get(
-        `http://localhost:5000/packages/view?search=${e.target.value}`
+        `http://13.233.157.42:5000/packages/view?search=${e.target.value}`
       );
       setResults(response.data);
     } else {
@@ -100,7 +100,7 @@ function Header() {
               </svg>
             </button>
             <Link to="/" className="text-2xl font-bold">
-              <img src={logo} alt="Gulfania" className="h-12 my-2 mx-4" />
+              <img src={logo} alt="Tripmenia" className="h-12 my-2 mx-4" />
             </Link>
           </div>
           <Sidebar isOpen={isOpen} toggleSidebar={() => setIsOpen(!isOpen)} />
@@ -134,6 +134,7 @@ function Header() {
               location.pathname.includes("explore") ||
               location.pathname.includes("success") ||
               location.pathname.includes("failure") ||
+              location.pathname.includes("package") ||
               navbar
                 ? "text-black"
                 : "text-white"

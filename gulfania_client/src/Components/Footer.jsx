@@ -16,14 +16,14 @@ const Footer = () => {
             <div className="order-2 pt-4 md:order-none md:pt-0 lg:shrink-0">
               <p className="text-center text-sm font-normal capitalize leading-6 text-gray-dark md:text-left 3xl:text-base">
                 <a
-                  href="guflania.com"
+                  href="tripmenia.com"
                   rel="noReferrer"
                   target="_blank"
                   className="font-semibold hover:underline"
                 >
-                  @ Gulfania
+                  @ Tripmenia
                 </a>
-                , B33-129, SRTI Park, United Arab Emirates
+                ,United Arab Emirates
               </p>
             </div>
             <nav className="order-1 border-b border-gray-lighter pb-4 md:order-none md:border-b-0 md:pb-0">
@@ -32,7 +32,7 @@ const Footer = () => {
                   <a
                     target="blank"
                     rel="noReferrer"
-                    href="https://www.google.com/search?sca_esv=601002590&amp;authuser=4&amp;sxsrf=ACQVn0_P61fVTiMOLAEaAltRFYMUL5xohw%3A1706079191342&amp;q=Gulfania&amp;stick=H4sIAAAAAAAAAONgU1I1qDBONU0zTUuzMLUwNDBMsUyyMqgwNUk0NUxJsjQ0MzdNs0w2X8TK4V6ak5aYl5kIAKJ5Juw0AAAA&amp;mat=CXgo46mwjo97&amp;ved=2ahUKEwiahqKhuPWDAxU6T6QEHYLmBBoQrMcEegQIDhAH#lrd=0x3e5f5ff858101d9b:0x54a51db91675f9c7,1,,,,"
+                    href="#"
                   >
                     <img
                       alt="google"
@@ -49,7 +49,7 @@ const Footer = () => {
                 <li className="px-4 first:pl-0 last:pr-0 lg:px-6">
                   <a
                     target="blank"
-                    href="https://www.tripadvisor.com/UserReviewEdit-g298064-d27141987-Gulfania-Sharjah_Emirate_of_Sharjah.html"
+                    href="https://www.tripadvisor.com/"
                   >
                     <img
                       alt="google"
@@ -105,7 +105,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     rel="noReferrer"
-                    href="https://www.instagram.com/gulfaniaofficial?igsh=MWtwYmhlb2NqaXV3MQ%3D%3D&amp;utm_source=qr"
+                    href="https://www.instagram.com/"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -164,6 +164,7 @@ const Footer = () => {
                     Home
                   </a>
                 </li>
+                
                 <li className="hidden md:block px-4 first:pl-0 last:pr-0 lg:px-6">
                   <a
                     className="block text-sm font-normal capitalize leading-4 text-primary 3xl:text-base"

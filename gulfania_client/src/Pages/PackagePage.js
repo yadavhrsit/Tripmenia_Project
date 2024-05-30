@@ -5,6 +5,8 @@ import questions from "../assets/questions.webp";
 import whatsapp from "../assets/icons/whatsapp.png";
 import BookingForm from "../Components/BookingForm";
 import PhoneBookingModal from "../Components/PhoneBookingModal";
+import "../css/li.css";
+import ShareComponent from "../Components/ShareComponent";
 function PackagePage() {
   const { id } = useParams();
   const [packageData, setPackageData] = useState(null);
@@ -14,16 +16,16 @@ function PackagePage() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [openBookingForm, setOpenBookingForm] = useState(false);
   const [openPhoneBookingForm, setPhoneOpenBookingForm] = useState(false);
+  const [openShareLinks, setOpenShareLinks] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/packages/viewpackagedetail/${id}`
+          `http://13.233.157.42:5000/packages/viewpackagedetail/${id}`
         );
         const data = await response.json();
         setPackageData(data);
-      
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -31,9 +33,66 @@ function PackagePage() {
     fetchData();
   }, [id]);
 
+  
+
   useEffect(() => {
     setTotalPrice(packageData?.specialPrice * guests);
   }, [packageData, guests]);
+  const link = window.location.href;
+  const shareLinks = {
+    platforms: [
+      {
+        name: "SMS",
+        url: `sms:?body=${encodeURIComponent(link)}`,
+        color: "rgb(106, 10, 181)",
+        viewBox: "0 0 24 24",
+        iconPath:
+          "M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z",
+      },
+      {
+        name: "Telegram",
+        url: `https://telegram.me/share/url?url=${encodeURIComponent(link)}`,
+        color: "rgb(45, 163, 222)",
+        viewBox: "0 0 24 24",
+        iconPath:
+          "M22.265 2.428a2.048 2.048 0 0 0-2.078-.324L2.266 9.339a2.043 2.043 0 0 0 .104 3.818l3.625 1.261 2.02 6.682c.028.089.068.174.119.252.008.012.019.021.027.033a.988.988 0 0 0 .281.265c.095.063.2.11.31.136l.013.001.006.003c.067.014.135.02.203.02l.018-.003a.992.992 0 0 0 .302-.052c.022-.008.041-.02.063-.03a.994.994 0 0 0 .205-.114l.152-.129 2.702-2.983 4.03 3.122c.355.276.792.427 1.241.427a2.054 2.054 0 0 0 2.019-1.563l3.717-16.576a2.042 2.042 0 0 0-.701-2.033zm-4.396 3.252L8.93 13.895l-.058.058a.99.99 0 0 0-.256.47l-.743 2.457-.812-2.686 9.926-7.008z",
+      },
+      {
+        name: "Twitter",
+        url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(link)}`,
+        color: "rgb(29, 155, 240)",
+        viewBox: "0 0 24 24",
+        iconPath:
+          "M19.633 7.997c.014.206.014.412.014.617 0 6.301-4.792 13.559-13.558 13.559-2.694 0-5.202-.785-7.313-2.141.38.044.75.075 1.14.075a9.595 9.595 0 0 0 5.96-2.055 4.786 4.786 0 0 1-4.469-3.324c.297.045.59.075.895.075.434 0 .855-.057 1.259-.166a4.783 4.783 0 0 1-3.835-4.693v-.06a4.804 4.804 0 0 0 2.165.604 4.78 4.78 0 0 1-1.482-6.379 13.584 13.584 0 0 0 9.851 4.993 4.782 4.782 0 0 1 8.148-4.36 9.561 9.561 0 0 0 3.037-1.16 4.805 4.805 0 0 1-2.098 2.646 9.578 9.578 0 0 0 2.752-.752 10.23 10.23 0 0 1-2.405 2.491z",
+      },
+      {
+        name: "Facebook",
+        url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          link
+        )}`,
+        color: "rgb(59, 89, 152)",
+        viewBox: "0 0 24 24",
+        iconPath:
+          "M12.001 1.963c-5.525 0-10.037 4.512-10.037 10.037 0 5.025 3.684 9.177 8.499 9.931v-7.022H7.472v-2.91h2.99v-2.144c0-2.951 1.796-4.561 4.44-4.561 1.285 0 2.619.23 2.619.23v2.878h-1.476c-1.457 0-1.91.91-1.91 1.844v2.104h3.258l-.52 2.91h-2.738v7.022c4.815-.754 8.5-4.905 8.5-9.931 0-5.525-4.512-10.037-10.037-10.037z",
+      },
+      {
+        name: "WhatsApp",
+        url: `https://wa.me/?text=${encodeURIComponent(link)}`,
+        color: "rgb(3, 182, 3)",
+        viewBox: "0 0 24 24",
+        iconPath:
+          "M16.6 14c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.3-.8-1.8-.1-.7-.3-.7-.5-.7h-.5c-.2 0-.5.2-.6.3-.6.6-.9 1.3-.9 2.1.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2Zm2.5-9.1C15.2 1 8.9 1 5 4.9c-3.2 3.2-3.8 8.1-1.6 12L2 22l5.3-1.4c1.5.8 3.1 1.2 4.7 1.2 5.5 0 9.9-4.4 9.9-9.9.1-2.6-1-5.1-2.8-7Zm-2.7 14c-1.3.8-2.8 1.3-4.4 1.3-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3c-2.4-4-1.2-9 2.7-11.5 3.9-2.5 8.9-1.2 11.3 2.6 2.4 3.9 1.3 9-2.6 11.4Z",
+      },
+      {
+        name: "Email",
+        url: `mailto:?body=${encodeURIComponent(link)}`,
+        color: "rgb(255, 0, 0)",
+        viewBox: "0 0 24 24",
+        iconPath:
+          "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57V12c0-5.52-4.48-10-10-10Zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3Z",
+      },
+    ],
+  };
 
   if (!packageData) {
     return <div>Loading...</div>;
@@ -56,7 +115,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={packageData.images[0]}
+                    src={`http://13.233.157.42:5000/upload/${packageData.images[0]}`}
                   />
                 </div>
                 <div className="relative hidden h-full cursor-pointer md:block">
@@ -74,7 +133,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={packageData.images[1]}
+                    src={`http://13.233.157.42:5000/upload/${packageData.images[1]}`}
                   />
                 </div>
                 <div className="relative hidden h-full cursor-pointer md:block">
@@ -92,26 +151,10 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={packageData.images[2]}
+                    src={`http://13.233.157.42:5000/upload/${packageData.images[2]}`}
                   />
                 </div>
               </div>
-              <button
-                type="button"
-                className="inline-flex font-medium items-center justify-center focus:outline-none transition duration-200 active:scale-90 px-2.5 py-1 text-xs rounded-md bg-transparent border border-gray-300 hover:enabled:border-gray-1000 focus:enabled:border-gray-1000 focus:ring-gray-900/30 absolute bottom-3 right-3 !bg-white px-2 py-1.5 text-sm !font-bold leading-4 text-gray-dark md:bottom-5 md:right-5 xl:py-2 2xl:px-3 2xl:text-base 3xl:bottom-8 3xl:right-8 3xl:px-4 3xl:leading-6 4xl:px-5 4xl:py-2.5"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  className="mr-2 h-3 w-3"
-                >
-                  <g fill="currentColor">
-                    <path d="M2.5 0h-2a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5zm0 4.5h-2A.5.5 0 0 0 0 5v2a.5.5 0 0 0 .5.5h2A.5.5 0 0 0 3 7V5a.5.5 0 0 0-.5-.5zm0 4.5h-2a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5zM7 0H5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2A.5.5 0 0 0 7 0zm0 4.5H5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5zM7 9H5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2A.5.5 0 0 0 7 9zm4.5-9h-2a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5zm0 4.5h-2A.5.5 0 0 0 9 5v2a.5.5 0 0 0 .5.5h2A.5.5 0 0 0 12 7V5a.5.5 0 0 0-.5-.5zm0 4.5h-2a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5z"></path>
-                  </g>
-                </svg>
-                View <span className="hidden px-1 lg:block"> more </span> photos
-              </button>
             </div>
             <div className="flex justify-between gap-5 lg:gap-8 xl:gap-12 4xl:gap-16">
               <div className="w-full">
@@ -166,6 +209,7 @@ function PackagePage() {
                       <button
                         type="button"
                         className="inline-flex font-medium items-center justify-center focus:outline-none transition duration-200 active:scale-90 px-2.5 py-1 text-xs rounded-full bg-transparent border border-gray-300 hover:enabled:border-gray-1000 focus:enabled:border-gray-1000 focus:ring-gray-900/30 !border-none !bg-gray-lightest !p-4 text-gray-dark hover:!bg-gray-dark hover:text-white"
+                        onClick={() => setOpenShareLinks(!openShareLinks)}
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -241,7 +285,7 @@ function PackagePage() {
                         <span className="ml-2 font-bold xl:text-[20px]">
                           AED {packageData.specialPrice}
                         </span>
-                        <span className="ml-2 bg-green-500 text-white p-1 rounded font-bold xl:text-[15px]">
+                        <span className="ml-2 bg-customPurple text-white p-1 rounded font-bold xl:text-[15px]">
                           Save{" "}
                           {parseInt(
                             ((packageData.price - packageData.specialPrice) /
@@ -295,20 +339,37 @@ function PackagePage() {
                                   {guests} <span className="ml-2">Guests</span>
                                 </span>
                                 <span className="transition-transform duration-200 rotate-0">
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    stroke="currentColor"
-                                    className="h-4 w-4 font-bold text-gray"
-                                  >
-                                    <path
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                                    ></path>
-                                  </svg>
+                                  {guestsCounter ? (
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      strokeWidth="1.5"
+                                      stroke="currentColor"
+                                      className="h-4 w-4 font-bold text-gray"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M5.5 15.75l7.5-7.5 7.5 7.5"
+                                      ></path>
+                                    </svg>
+                                  ) : (
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      strokeWidth="1.5"
+                                      stroke="currentColor"
+                                      className="h-4 w-4 font-bold text-gray"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                                      ></path>
+                                    </svg>
+                                  )}
                                 </span>
                               </button>
                             </div>
@@ -413,8 +474,8 @@ function PackagePage() {
                         className="flex justify-center items-center gap-2"
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="https://wa.me/971529720709?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20https%3A%2F%2Fwww.gulfania.com%2Flisting%2Ftop-attractions%2Fevening-desert-safari-dubai%2F65a66dd9093d05cb54f800ac"
-                      >
+                        href={`https://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
+                        >
                         <IoLogoWhatsapp size={20} />
                         Book on WhatsApp
                       </a>
@@ -428,7 +489,9 @@ function PackagePage() {
 
         <div className="fixed inset-x-0 bottom-0 z-50 flex w-full items-center justify-between bg-white px-4 py-3 border-t-2 sm:px-6 lg:hidden">
           <div>
-            <span className="line-through text-[12px]">{packageData.price}</span>
+            <span className="line-through text-[12px]">
+              {packageData.price}
+            </span>
             <span>
               <span className="ml-2 bg-green-500 text-white p-1 rounded text-[10px]">
                 Save{" "}
@@ -491,6 +554,13 @@ function PackagePage() {
             setGuestsCounter={setGuestsCounter}
             totalPrice={totalPrice}
             setTotalPrice={setTotalPrice}
+          />
+        )}
+        {openShareLinks && (
+          <ShareComponent
+            shareLinks={shareLinks}
+            setOpenShareLinks={setOpenShareLinks}
+            link={link}
           />
         )}
       </>

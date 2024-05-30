@@ -19,9 +19,9 @@ async function initiatePayment(req, res) {
         amount: req.body.amount * 100, // Assuming amount is in AED
         currency_code: "AED",
         message: `Package ${req.body.destination}`,
-        success_url: `http://localhost:3000/success/${bookingId}`,
-        cancel_url: "http://localhost:3000/failure",
-        test: true, // Remove in production
+        success_url: `https://www.tripmenia.com/success/${bookingId}`,
+        cancel_url: "https://www.tripmenia.com/failure",
+        // Remove in production
       }),
     };
 

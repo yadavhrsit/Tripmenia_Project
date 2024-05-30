@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
@@ -9,11 +9,12 @@ import "swiper/css/navigation";
 
 const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
   const [categories, setCategories] = useState([]);
+  const swiperRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/categories/view");
+        const response = await fetch("http://13.233.157.42:5000/categories/view");
         const data = await response.json();
         setCategories(data);
       } catch (error) {
@@ -24,14 +25,21 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
     fetchData();
   }, []);
 
-  const [swiper, setSwiper] = useState(null);
+  const handleCategoryClick = (categoryId, index) => {
+    setSelectedCategory((prevCategory) =>
+      prevCategory === categoryId ? null : categoryId
+    );
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(index, 300); // Adjust the duration as needed
+    }
+  };
 
   const prevSlide = () => {
-    if (swiper) swiper.slidePrev();
+    if (swiperRef.current) swiperRef.current.slidePrev();
   };
 
   const nextSlide = () => {
-    if (swiper) swiper.slideNext();
+    if (swiperRef.current) swiperRef.current.slideNext();
   };
 
   return (
@@ -66,7 +74,9 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
             spaceBetween: 30,
           },
         }}
-        onSwiper={setSwiper}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
         className="mySwiper"
       >
         {categories.map((category, index) => (
@@ -78,11 +88,7 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
                   ? "bg-red-900 text-white hover:text-black relative"
                   : "bg-gray-100 text-black"
               } text-xs md:text-sm xl:text-base`}
-              onClick={() =>
-                setSelectedCategory((prevCategory) =>
-                  prevCategory === category._id ? null : category._id
-                )
-              }
+              onClick={() => handleCategoryClick(category._id, index)}
             >
               {category.categoryName}
               {selectedCategory === category._id && (

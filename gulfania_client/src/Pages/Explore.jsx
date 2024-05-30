@@ -31,7 +31,7 @@ function Explore() {
       try {
         const categories = selectedCategory.join(",");
         const response = await fetch(
-          `http://localhost:5000/packages/filter-view?categories=${categories}&minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${12}`
+          `http://13.233.157.42:5000/packages/filter-view?categories=${categories}&minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${12}`
         );
         const data = await response.json();
         setPackages((prevPackages) => [...prevPackages, ...data.packages]);
@@ -140,7 +140,7 @@ function Explore() {
         size={size}
         queryTotal={queryTotal}
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:grid-cols-3 2xl:grid-cols-4 2xl:gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:grid-cols-3 2xl:grid-cols-4 2xl:gap-2">
         {packages?.length > 0 ? (
           packages.map((pckg) => (
             <Card
@@ -149,7 +149,7 @@ function Explore() {
               packageName={pckg.packageName || "Package Name"}
               price={pckg.price || 1000}
               discount={pckg.discount || 55}
-              image={pckg.images[0]}
+              image={`http://13.233.157.42:5000/upload/${pckg.images[0]}`}
               specialPrice={pckg.specialPrice || 500}
               packageId={pckg._id}
             />

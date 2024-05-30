@@ -1,4 +1,5 @@
 const express = require('express')
+const path =require('path')
 const app = express();
 require('dotenv').config();
 const morgan = require('morgan')
@@ -17,6 +18,8 @@ app.use(express.json()); // req.body
 app.use(express.urlencoded({extended:true}))
 
 connectDb();
+const buildpath = path.join(__dirname,'/client/build')
+app.use(express.static(buildpath))
 const PORT = process.env.Port || 3000;
 app.use(cors());
 
@@ -28,7 +31,7 @@ app.use('/packages', packageRoutes);
 app.use('/banners',bannerrouter);
 app.use('/bookings', bookingRoutes);
 
-
+app.use('/test',(req,res)=>{return res.send("Server is running")})
 
 morgan.token("body", (req) => {
     return JSON.stringify(req.body);

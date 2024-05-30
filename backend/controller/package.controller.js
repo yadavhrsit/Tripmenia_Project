@@ -81,7 +81,7 @@ const getPackagesByCategoryId = async (req, res) => {
   try {
     let { page, size, sort, search } = req.query;
     page = parseInt(page) || 1;
-    size = parseInt(size) || 10;
+    size = parseInt(size) || 50;
     const skip = (page - 1) * size;
 
     const query = { categoryId: req.params.id,enabled:true };

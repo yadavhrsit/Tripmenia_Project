@@ -14,7 +14,7 @@ function PhoneBookingModal({
   setDate,
 }) {
   const [modalOpen, setModalOpen] = useState(true);
-
+  const link = window.location.href;
   useEffect(() => {
     // Disable scroll
     document.body.style.overflow = "hidden";
@@ -247,8 +247,8 @@ function PhoneBookingModal({
                   className="flex justify-center items-center gap-2"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://wa.me/971529720709?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20https%3A%2F%2Fwww.gulfania.com%2Flisting%2Ftop-attractions%2Fevening-desert-safari-dubai%2F65a66dd9093d05cb54f800ac"
-                >
+                  href={`https://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
+                  >
                   <IoLogoWhatsapp size={20} />
                   Book on WhatsApp
                 </a>

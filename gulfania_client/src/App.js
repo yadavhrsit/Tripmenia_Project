@@ -11,7 +11,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/package/:id" element=<PackagePage /> />
+        <Route path="/package/:id" element={<PackagePage />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/success/:id" element={<Success/>} />
         <Route path="/failure" element={<Failure/>} />

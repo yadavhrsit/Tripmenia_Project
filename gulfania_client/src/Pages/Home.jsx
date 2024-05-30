@@ -17,7 +17,7 @@ function Home() {
       if (selectedCategory === null) {
         try {
           const response = await fetch(
-            "http://localhost:5000/categories/view/"
+            "http://13.233.157.42:5000/categories/view/"
           );
           const data = await response.json();
           setCategories(data);
@@ -27,11 +27,11 @@ function Home() {
       } else {
         try {
           const response = await fetch(
-            `http://localhost:5000/packages/view/${selectedCategory}`
+            `http://13.233.157.42:5000/packages/view/${selectedCategory}`
           );
           const data = await response.json();
-        
           setPackage(data);
+          window.scrollTo(0, 300)
         } catch (error) {
           console.error("Error fetching data:", error);
         }

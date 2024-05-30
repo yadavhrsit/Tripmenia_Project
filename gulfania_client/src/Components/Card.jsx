@@ -41,16 +41,16 @@ export default function Card({
                 {price}
               </p>
               <p className="text-gray-700 text-sm mb-1">{specialPrice}</p>
-              <p className="text-white text-xs mb-1 bg-green-600 p-1 rounded">
+              <p className="text-white text-xs mb-1 text-nowrap bg-customPurple p-1 rounded">
                 {discount}% OFF
               </p>
             </div>
 
-            <div className="flex justify-between items-center gap-1">
+            <div className="flex justify-between items-center gap-1 ">
               <IoLogoWhatsapp className="text-lg mb-2" />
               <Link
                 to={`/package/${packageId}`}
-                className="bg-black hover:bg-green-700 text-white font-bold py-1 px-2 mb-2 text-sm rounded"
+                className="bg-black text-nowrap hover:bg-customPurple text-white font-bold py-1 px-2 mb-2 text-sm rounded"
               >
                 Book Now
               </Link>
