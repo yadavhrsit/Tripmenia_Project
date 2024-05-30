@@ -475,7 +475,7 @@ function PackagePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         href={`https://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
-                        >
+                      >
                         <IoLogoWhatsapp size={20} />
                         Book on WhatsApp
                       </a>
@@ -510,7 +510,7 @@ function PackagePage() {
             className="flex justify-center"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://wa.me/971529720709?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20https%3A%2F%2Fwww.gulfania.com%2Flisting%2Ftop-attractions%2Ftickets-to-burj-khalifa-level-124-%26-125-dubai%2F65a65eac093d05cb54f7ff4f"
+            href={`https://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
           >
             <img
               alt="whatsapp"
