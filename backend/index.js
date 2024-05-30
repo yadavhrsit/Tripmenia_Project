@@ -18,7 +18,7 @@ app.use(express.json()); // req.body
 app.use(express.urlencoded({extended:true}))
 
 connectDb();
-const buildpath = path.join(__dirname,'/client/build')
+const buildpath = path.join(__dirname,'../tripmenia_client/build')
 app.use(express.static(buildpath))
 const PORT = process.env.Port || 3000;
 app.use(cors());
