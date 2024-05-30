@@ -3,7 +3,7 @@ const path =require('path')
 const app = express();
 require('dotenv').config();
 const morgan = require('morgan')
-const path = require('path');
+
 
 // Import the router files
 const adminRoutes = require('./routes/adminRoutes');
@@ -20,7 +20,7 @@ app.use(express.urlencoded({extended:true}))
 connectDb();
 const buildpath = path.join(__dirname,'../tripmenia_client/build')
 app.use(express.static(buildpath))
-const PORT = process.env.Port || 3000;
+const PORT = process.env.PORT || 5000;
 app.use(cors());
 
 app.use(express.static(path.join(__dirname, '/public')));
