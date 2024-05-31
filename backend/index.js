@@ -22,8 +22,6 @@ connectDb();
 const buildpath = path.join(__dirname,'../tripmenia_client/build')
 app.use(express.static(buildpath))
 
-const adminBuildPath = path.join(__dirname, "../tripmenia_admin/build");
-app.use("/admin", express.static(adminBuildPath));
 
 const PORT = process.env.PORT || 5000;
 app.use(cors());
