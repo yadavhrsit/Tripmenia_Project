@@ -12,7 +12,7 @@ function Success() {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `http://13.233.157.42:5000/bookings/verify/${id}`
+          `http://13.202.68.157:5000/bookings/verify/${id}`
         );
         setBookingData(response.data);
         setLoading(false);

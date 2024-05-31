@@ -14,7 +14,7 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://13.233.157.42:5000/categories/view");
+        const response = await fetch("http://13.202.68.157:5000/categories/view");
         const data = await response.json();
         setCategories(data);
       } catch (error) {
