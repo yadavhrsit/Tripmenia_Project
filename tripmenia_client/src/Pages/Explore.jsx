@@ -31,7 +31,7 @@ function Explore() {
       try {
         const categories = selectedCategory.join(",");
         const response = await fetch(
-          `http://13.202.68.157:5000/packages/filter-view?categories=${categories}&minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${12}`
+          `http://13.202.68.157:5000/api/packages/filter-view?categories=${categories}&minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${12}`
         );
         const data = await response.json();
         setPackages((prevPackages) => [...prevPackages, ...data.packages]);
@@ -149,7 +149,7 @@ function Explore() {
               packageName={pckg.packageName || "Package Name"}
               price={pckg.price || 1000}
               discount={pckg.discount || 55}
-              image={`http://13.202.68.157:5000/upload/${pckg.images[0]}`}
+              image={`http://13.202.68.157:5000/api/upload/${pckg.images[0]}`}
               specialPrice={pckg.specialPrice || 500}
               packageId={pckg._id}
             />

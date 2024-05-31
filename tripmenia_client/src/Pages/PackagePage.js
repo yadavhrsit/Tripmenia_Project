@@ -22,7 +22,7 @@ function PackagePage() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://13.202.68.157:5000/packages/viewpackagedetail/${id}`
+          `http://13.202.68.157:5000/api/packages/viewpackagedetail/${id}`
         );
         const data = await response.json();
         setPackageData(data);
@@ -115,7 +115,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={`http://13.202.68.157:5000/upload/${packageData.images[0]}`}
+                    src={`http://13.202.68.157:5000/api/upload/${packageData.images[0]}`}
                   />
                 </div>
                 <div className="relative hidden h-full cursor-pointer md:block">
@@ -133,7 +133,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={`http://13.202.68.157:5000/upload/${packageData.images[1]}`}
+                    src={`http://13.202.68.157:5000/api/upload/${packageData.images[1]}`}
                   />
                 </div>
                 <div className="relative hidden h-full cursor-pointer md:block">
@@ -151,7 +151,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={`http://13.202.68.157:5000/upload/${packageData.images[2]}`}
+                    src={`http://13.202.68.157:5000/api/upload/${packageData.images[2]}`}
                   />
                 </div>
               </div>

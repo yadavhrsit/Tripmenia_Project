@@ -28,13 +28,15 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, '/public')));
 // Use the routers
-app.use('/admin',adminRoutes);
-app.use('/categories', categoryRoutes);
-app.use('/packages', packageRoutes);
-app.use('/banners',bannerrouter);
-app.use('/bookings', bookingRoutes);
+app.use('/api/admin',adminRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/packages", packageRoutes);
+app.use("/api/banners", bannerrouter);
+app.use("/api/bookings", bookingRoutes);
 
-app.use('/test',(req,res)=>{return res.send("Server is running")})
+app.use("/api/test", (req, res) => {
+  return res.send("Server is running");
+});
 
 morgan.token("body", (req) => {
     return JSON.stringify(req.body);
