@@ -19,8 +19,8 @@ app.use(express.urlencoded({extended:true}))
 
 connectDb();
 
-const buildpath = path.join(__dirname,'../tripmenia_client/build')
-app.use(express.static(buildpath))
+// const buildpath = path.join(__dirname,'../tripmenia_client/build')
+// app.use(express.static(buildpath))
 
 
 const PORT = process.env.PORT || 5000;
