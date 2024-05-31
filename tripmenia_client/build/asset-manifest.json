@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.96498546.css",
-    "main.js": "/static/js/main.f7c6ec75.js",
+    "main.js": "/static/js/main.cc0d620d.js",
     "static/media/banner.jpg": "/static/media/banner.6b3015bfebd16622257b.jpg",
     "static/media/bodyBottomBanner.webp": "/static/media/bodyBottomBanner.0b9f97f1a0d51a99779c.webp",
     "static/media/bodyBanner.webp": "/static/media/bodyBanner.e3f47a72d2b42512ecef.webp",
@@ -14,10 +14,10 @@
     "static/media/tripadvisor.webp": "/static/media/tripadvisor.379ee373dd4a82ec912f.webp",
     "index.html": "/index.html",
     "main.96498546.css.map": "/static/css/main.96498546.css.map",
-    "main.f7c6ec75.js.map": "/static/js/main.f7c6ec75.js.map"
+    "main.cc0d620d.js.map": "/static/js/main.cc0d620d.js.map"
   },
   "entrypoints": [
     "static/css/main.96498546.css",
-    "static/js/main.f7c6ec75.js"
+    "static/js/main.cc0d620d.js"
   ]
 }
