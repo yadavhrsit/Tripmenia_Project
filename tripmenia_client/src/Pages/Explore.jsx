@@ -149,7 +149,7 @@ function Explore() {
               packageName={pckg.packageName || "Package Name"}
               price={pckg.price || 1000}
               discount={pckg.discount || 55}
-              image={`http://13.202.68.157/api/upload/${pckg.images[0]}`}
+              image={`http://13.202.68.157/public/upload/${pckg.images[0]}`}
               specialPrice={pckg.specialPrice || 500}
               packageId={pckg._id}
             />
