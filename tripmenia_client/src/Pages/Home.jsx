@@ -17,7 +17,7 @@ function Home() {
       if (selectedCategory === null) {
         try {
           const response = await fetch(
-            "https://13.202.68.157/api/categories/view/"
+            "https://tripmenia.com/api/categories/view/"
           );
           const data = await response.json();
           setCategories(data);
@@ -27,7 +27,7 @@ function Home() {
       } else {
         try {
           const response = await fetch(
-            `https://13.202.68.157/api/packages/view/${selectedCategory}`
+            `https://tripmenia.com/api/packages/view/${selectedCategory}`
           );
           const data = await response.json();
           setPackage(data);

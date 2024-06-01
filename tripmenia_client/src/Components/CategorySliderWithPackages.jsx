@@ -15,7 +15,7 @@ function CategorySlider({ categoryId, categoryTitle, categoryDescription,selecte
     async function fetchData() {
       try {
         const response = await fetch(
-          `https://13.202.68.157/api/packages/view/${categoryId}`
+          `https://tripmenia.com/api/packages/view/${categoryId}`
         );
         const data = await response.json();
       
@@ -86,7 +86,7 @@ function CategorySlider({ categoryId, categoryTitle, categoryDescription,selecte
                 packageName={pckg.packageName || "Package Name"}
                 price={pckg.price || 1000}
                 discount={pckg.discount || 55}
-                image={`https://13.202.68.157/public/upload/${pckg.images[0]}`}
+                image={`https://tripmenia.com/public/upload/${pckg.images[0]}`}
                 specialPrice={pckg.specialPrice || 500}
                 packageId={pckg._id}
               />

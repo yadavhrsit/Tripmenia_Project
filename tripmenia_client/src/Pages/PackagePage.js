@@ -22,7 +22,7 @@ function PackagePage() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://13.202.68.157/api/packages/viewpackagedetail/${id}`
+          `https://tripmenia.com/api/packages/viewpackagedetail/${id}`
         );
         const data = await response.json();
         setPackageData(data);
@@ -115,7 +115,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={`https://13.202.68.157/public/upload/${packageData.images[0]}`}
+                    src={`https://tripmenia.com/public/upload/${packageData.images[0]}`}
                   />
                 </div>
                 <div className="relative hidden h-full cursor-pointer md:block">
@@ -133,7 +133,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={`https://13.202.68.157/public/upload/${packageData.images[1]}`}
+                    src={`https://tripmenia.com/public/upload/${packageData.images[1]}`}
                   />
                 </div>
                 <div className="relative hidden h-full cursor-pointer md:block">
@@ -151,7 +151,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={`https://13.202.68.157/public/upload/${packageData.images[2]}`}
+                    src={`https://tripmenia.com/public/upload/${packageData.images[2]}`}
                   />
                 </div>
               </div>

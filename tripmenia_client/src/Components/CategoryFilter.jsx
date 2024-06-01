@@ -17,7 +17,7 @@ function CategoryFilter({
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://13.202.68.157/api/categories/view"
+          "https://tripmenia.com/api/categories/view"
         );
         setCategories(response.data);
       } catch (error) {

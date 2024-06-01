@@ -12,7 +12,7 @@ function Success() {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `https://13.202.68.157/api/bookings/verify/${id}`
+          `https://tripmenia.com/api/bookings/verify/${id}`
         );
         setBookingData(response.data);
         setLoading(false);

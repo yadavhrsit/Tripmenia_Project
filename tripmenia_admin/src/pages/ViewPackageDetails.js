@@ -55,7 +55,7 @@ export default function ViewPackageDetails() {
                                     <div className="row">
                                         {packagess.images && packagess.images.map((image, index) => (
                                             <div className="col-md-3 mb-3" key={index}>
-                                                <img src={`https://13.202.68.157/public/upload/${image}`} alt={`Package ${index}`} className="img-fluid" style={{width:"100%"}} />
+                                                <img src={`https://tripmenia.com/public/upload/${image}`} alt={`Package ${index}`} className="img-fluid" style={{width:"100%"}} />
                                             </div>
                                         ))}
                                     </div>

@@ -1,4 +1,4 @@
-const API ="https://13.202.68.157/api"
+const API ="https://tripmenia.com/api"
 
 
 export default API;

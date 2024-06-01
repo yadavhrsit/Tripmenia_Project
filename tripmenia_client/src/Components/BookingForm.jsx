@@ -37,7 +37,7 @@ function BookingForm({ destination, guests, amount, date, packageId }) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://13.202.68.157/api/bookings/create",
+        "https://tripmenia.com/api/bookings/create",
         formData
       );
       if(response.status === 200) {

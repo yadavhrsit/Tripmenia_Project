@@ -29,7 +29,7 @@ function Header() {
     setSearch(e.target.value);
     if (e.target.value) {
       const response = await axios.get(
-        `https://13.202.68.157/api/packages/view?search=${e.target.value}`
+        `https://tripmenia.com/api/packages/view?search=${e.target.value}`
       );
       setResults(response.data);
     } else {
