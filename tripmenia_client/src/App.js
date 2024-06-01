@@ -5,6 +5,7 @@ import PackagePage from "./Pages/PackagePage";
 import Layout from "./Layout";
 import Success from "./Pages/Success";
 import Failure from "./Pages/Failure";
+import NotFound from "./Pages/NotFound";
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/success/:id" element={<Success/>} />
         <Route path="/failure" element={<Failure/>} />
-        <Route path="*" element={<div>Not Found</div>} />
+        <Route path="*" element={<NotFound/>} />
       </Route>
     </Routes>
   );
