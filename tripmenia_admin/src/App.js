@@ -13,22 +13,19 @@ import ViewPackageDetails from './pages/ViewPackageDetails';
 function App() {
   return (
     <>
-  <Routes>
-
-    <Route element ={<Login/>} path='/'/>
-    <Route element={<Dashboard/>} path='/dashboard'/>
-    <Route element={<AddCategory/>} path='/category-add'/>
-    <Route element={<ViewCategory/>} path='/category-view'/>
-    <Route element={<AddPackage/>} path='/package-add'/>
-    <Route Component={MyHTMLEditor} path='/des'/>
-    <Route element ={<ViewPackage/>} path='/package-view'/>
-    <Route path='/viewpackagedetails'>
-        <Route path=':id' Component={ViewPackageDetails} />
+      <Routes>
+        <Route element={<Login />} path="admin/view/" />
+        <Route element={<Dashboard />} path="admin/view/dashboard" />
+        <Route element={<AddCategory />} path="admin/view/category-add" />
+        <Route element={<ViewCategory />} path="admin/view/category-view" />
+        <Route element={<AddPackage />} path="admin/view/package-add" />
+        <Route Component={MyHTMLEditor} path="admin/view/des" />
+        <Route element={<ViewPackage />} path="admin/view/package-view" />
+        <Route path="admin/view/viewpackagedetails">
+          <Route path=":id" Component={ViewPackageDetails} />
         </Route>
-    
-    
-  </Routes>
-  </>
+      </Routes>
+    </>
   );
 }
 
