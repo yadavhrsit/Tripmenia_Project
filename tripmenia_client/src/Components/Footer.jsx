@@ -49,7 +49,7 @@ const Footer = () => {
                 <li className="px-4 first:pl-0 last:pr-0 lg:px-6">
                   <a
                     target="blank"
-                    href="https://www.tripadvisor.com/"
+                    href="httpss://www.tripadvisor.com/"
                   >
                     <img
                       alt="google"
@@ -65,7 +65,7 @@ const Footer = () => {
                 </li>
                 <li className="px-2 md:px-4 flex gap-2 first:pl-0 last:pr-0 lg:px-6">
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     width="30"
                     height="30"
                     viewBox="0 0 192.756 192.756"
@@ -105,10 +105,10 @@ const Footer = () => {
                   <a
                     target="_blank"
                     rel="noReferrer"
-                    href="https://www.instagram.com/"
+                    href="httpss://www.instagram.com/"
                   >
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns="https://www.w3.org/2000/svg"
                       width="30"
                       height="30"
                       viewBox="0 0 102 102"

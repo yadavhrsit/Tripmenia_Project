@@ -2,12 +2,12 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Ziina Payment Intent API",
-    "description": "The Ziina Payment Intent API enables clients to collect payments on their websites. Once a Payment Intent is\ncreated, direct the client to https://pay.ziina.com/payment_intent/:id to collect the payment.\n",
+    "description": "The Ziina Payment Intent API enables clients to collect payments on their websites. Once a Payment Intent is\ncreated, direct the client to httpss://pay.ziina.com/payment_intent/:id to collect the payment.\n",
     "version": "0.0.1"
   },
   "servers": [
     {
-      "url": "https://api-v2.ziina.com/api",
+      "url": "httpss://api-v2.ziina.com/api",
       "description": "Production server"
     }
   ],
@@ -297,7 +297,7 @@
     },
     "securitySchemes": {
       "BearerAuth": {
-        "type": "http",
+        "type": "https",
         "scheme": "bearer"
       }
     }

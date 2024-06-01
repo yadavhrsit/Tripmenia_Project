@@ -17,8 +17,8 @@
 /* Chartist.js 0.10.0
  * Copyright © 2016 Gion Kunz
  * Free to use under either the WTFPL license or the MIT license.
- * https://raw.githubusercontent.com/gionkunz/chartist-js/master/LICENSE-WTFPL
- * https://raw.githubusercontent.com/gionkunz/chartist-js/master/LICENSE-MIT
+ * httpss://raw.githubusercontent.com/gionkunz/chartist-js/master/LICENSE-WTFPL
+ * httpss://raw.githubusercontent.com/gionkunz/chartist-js/master/LICENSE-MIT
  */
 /**
  * The core module of Chartist that is mainly providing static functions and higher level functions for chart modules.
@@ -39,11 +39,11 @@ var Chartist = {
    * @type {{svg: string, xmlns: string, xhtml: string, xlink: string, ct: string}}
    */
   Chartist.namespaces = {
-    svg: 'http://www.w3.org/2000/svg',
-    xmlns: 'http://www.w3.org/2000/xmlns/',
-    xhtml: 'http://www.w3.org/1999/xhtml',
-    xlink: 'http://www.w3.org/1999/xlink',
-    ct: 'http://gionkunz.github.com/chartist-js/ct'
+    svg: 'https://www.w3.org/2000/svg',
+    xmlns: 'https://www.w3.org/2000/xmlns/',
+    xhtml: 'https://www.w3.org/1999/xhtml',
+    xlink: 'https://www.w3.org/1999/xlink',
+    ct: 'https://gionkunz.github.com/chartist-js/ct'
   };
 
   /**
@@ -326,7 +326,7 @@ var Chartist = {
     height = height || '100%';
 
     // Check if there is a previous SVG element in the container that contains the Chartist XML namespace and remove it
-    // Since the DOM API does not support namespaces we need to manually search the returned list http://www.w3.org/TR/selectors-api/
+    // Since the DOM API does not support namespaces we need to manually search the returned list https://www.w3.org/TR/selectors-api/
     Array.prototype.slice.call(container.querySelectorAll('svg')).filter(function filterChartistSvgObjects(svg) {
       return svg.getAttributeNS(Chartist.namespaces.xmlns, 'ct');
     }).forEach(function removePreviousElement(svg) {
@@ -1490,7 +1490,7 @@ var Chartist = {
         }
 
         // Determine desired slope (m) at each point using Fritsch-Carlson method
-        // See: http://math.stackexchange.com/questions/45218/implementation-of-monotone-cubic-interpolation
+        // See: https://math.stackexchange.com/questions/45218/implementation-of-monotone-cubic-interpolation
 
         ms[0] = ds[0];
         ms[n - 1] = ds[n - 2];
@@ -1803,8 +1803,8 @@ var Chartist = {
   // TODO: Currently we need to re-draw the chart on window resize. This is usually very bad and will affect performance.
   // This is done because we can't work with relative coordinates when drawing the chart because SVG Path does not
   // work with relative positions yet. We need to check if we can do a viewBox hack to switch to percentage.
-  // See http://mozilla.6506.n7.nabble.com/Specyfing-paths-with-percentages-unit-td247474.html
-  // Update: can be done using the above method tested here: http://codepen.io/gionkunz/pen/KDvLj
+  // See https://mozilla.6506.n7.nabble.com/Specyfing-paths-with-percentages-unit-td247474.html
+  // Update: can be done using the above method tested here: https://codepen.io/gionkunz/pen/KDvLj
   // The problem is with the label offsets that can't be converted into percentage and affecting the chart container
   /**
    * Updates the chart which currently does a full reconstruction of the SVG DOM
@@ -2143,7 +2143,7 @@ var Chartist = {
   }
 
   /**
-   * This method creates a foreignObject (see https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject) that allows to embed HTML content into a SVG graphic. With the help of foreignObjects you can enable the usage of regular HTML elements inside of SVG where they are subject for SVG positioning and transformation but the Browser will use the HTML rendering capabilities for the containing DOM.
+   * This method creates a foreignObject (see httpss://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject) that allows to embed HTML content into a SVG graphic. With the help of foreignObjects you can enable the usage of regular HTML elements inside of SVG where they are subject for SVG positioning and transformation but the Browser will use the HTML rendering capabilities for the containing DOM.
    *
    * @memberof Chartist.Svg
    * @param {Node|String} content The DOM Node, or HTML string that will be converted to a DOM Node, that is then placed into and wrapped by the foreignObject
@@ -2165,7 +2165,7 @@ var Chartist = {
     content.setAttribute('xmlns', Chartist.namespaces.xmlns);
 
     // Creating the foreignObject without required extension attribute (as described here
-    // http://www.w3.org/TR/SVG/extend.html#ForeignObjectElement)
+    // https://www.w3.org/TR/SVG/extend.html#ForeignObjectElement)
     var fnObj = this.elem('foreignObject', attributes, className, insertFirst);
 
     // Add content to foreignObjectElement
@@ -2320,7 +2320,7 @@ var Chartist = {
   }
 
   /**
-   * The animate function lets you animate the current element with SMIL animations. You can add animations for multiple attributes at the same time by using an animation definition object. This object should contain SMIL animation attributes. Please refer to http://www.w3.org/TR/SVG/animate.html for a detailed specification about the available animation attributes. Additionally an easing property can be passed in the animation definition object. This can be a string with a name of an easing function in `Chartist.Svg.Easing` or an array with four numbers specifying a cubic Bézier curve.
+   * The animate function lets you animate the current element with SMIL animations. You can add animations for multiple attributes at the same time by using an animation definition object. This object should contain SMIL animation attributes. Please refer to https://www.w3.org/TR/SVG/animate.html for a detailed specification about the available animation attributes. Additionally an easing property can be passed in the animation definition object. This can be a string with a name of an easing function in `Chartist.Svg.Easing` or an array with four numbers specifying a cubic Bézier curve.
    * **An animations object could look like this:**
    * ```javascript
    * element.animate({
@@ -2496,14 +2496,14 @@ var Chartist = {
   });
 
   /**
-   * This method checks for support of a given SVG feature like Extensibility, SVG-animation or the like. Check http://www.w3.org/TR/SVG11/feature for a detailed list.
+   * This method checks for support of a given SVG feature like Extensibility, SVG-animation or the like. Check https://www.w3.org/TR/SVG11/feature for a detailed list.
    *
    * @memberof Chartist.Svg
    * @param {String} feature The SVG 1.1 feature that should be checked for support.
    * @return {Boolean} True of false if the feature is supported or not
    */
   Chartist.Svg.isSupported = function(feature) {
-    return document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#' + feature, '1.1');
+    return document.implementation.hasFeature('https://www.w3.org/TR/SVG11/feature#' + feature, '1.1');
   };
 
   /**
@@ -4198,7 +4198,7 @@ var Chartist = {
 
     // If this is a donut chart we need to adjust our radius to enable strokes to be drawn inside
     // Unfortunately this is not possible with the current SVG Spec
-    // See this proposal for more details: http://lists.w3.org/Archives/Public/www-svg/2003Oct/0000.html
+    // See this proposal for more details: https://lists.w3.org/Archives/Public/www-svg/2003Oct/0000.html
     radius -= options.donut ? donutWidth.value / 2  : 0;
 
     // If labelPosition is set to `outside` or a donut chart is drawn then the label position is at the radius,

@@ -37,7 +37,7 @@ const HomeMiddleBanner = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="m-auto inline-block rounded-lg bg-white px-9 py-3 text-sm font-semibold text-gray-dark transition duration-150 hover:bg-gray-dark hover:bg-black hover:text-white md:ml-0 md:text-base"
-            href="https://wa.me/971567290409"
+            href="httpss://wa.me/971567290409"
           >
             Message Us
           </a>

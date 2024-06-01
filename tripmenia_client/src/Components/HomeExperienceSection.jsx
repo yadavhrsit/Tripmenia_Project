@@ -20,7 +20,7 @@ function HomeExperienceSection() {
         <div className="group/item card-gradient flex flex-col justify-start rounded-xl border-2 p-6 transition-all duration-500 lg:p-7 2xl:p-12">
           <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 74 116"
             >
@@ -58,7 +58,7 @@ function HomeExperienceSection() {
         <div className="group/item card-gradient flex flex-col justify-start rounded-xl border-2 p-6 transition-all duration-500 lg:p-7 2xl:p-12">
           <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 74 116"
             >
@@ -96,7 +96,7 @@ function HomeExperienceSection() {
         <div className="group/item card-gradient flex flex-col justify-start rounded-xl border-2 p-6 transition-all duration-500 lg:p-7 2xl:p-12">
           <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 74 114"
             >
@@ -127,7 +127,7 @@ function HomeExperienceSection() {
         <div className="group/item card-gradient flex flex-col justify-start rounded-xl border-2 p-6 transition-all duration-500 lg:p-7 2xl:p-12">
           <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 74 99"
             >
@@ -186,7 +186,7 @@ function HomeExperienceSection() {
             <div className="group/item card-gradient flex flex-col justify-start rounded-xl border-2 p-6 transition-all duration-500 lg:p-7 2xl:p-12">
               <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 74 116"
                 >
@@ -226,7 +226,7 @@ function HomeExperienceSection() {
             <div className="group/item card-gradient flex flex-col justify-start rounded-xl border-2 p-6 transition-all duration-500 lg:p-7 2xl:p-12">
               <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 74 116"
                 >
@@ -266,7 +266,7 @@ function HomeExperienceSection() {
             <div className="group/item card-gradient flex flex-col justify-start rounded-xl border-2 p-6 transition-all duration-500 lg:p-7 2xl:p-12">
               <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 74 114"
                 >
@@ -299,7 +299,7 @@ function HomeExperienceSection() {
             <div className="group/item card-gradient flex flex-col justify-start rounded-xl border-2 p-6 transition-all duration-500 lg:p-7 2xl:p-12">
               <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 74 99"
                 >

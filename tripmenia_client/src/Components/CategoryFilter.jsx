@@ -17,7 +17,7 @@ function CategoryFilter({
     async function fetchData() {
       try {
         const response = await axios.get(
-          "http://13.202.68.157/api/categories/view"
+          "https://13.202.68.157/api/categories/view"
         );
         setCategories(response.data);
       } catch (error) {
@@ -82,7 +82,7 @@ function CategoryFilter({
                     }}
                   />
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns="https://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     className="peer-checked:opacity-100 absolute opacity-0 text-white top-0 left-0 h-6 w-6"

@@ -29,7 +29,7 @@ function Header() {
     setSearch(e.target.value);
     if (e.target.value) {
       const response = await axios.get(
-        `http://13.202.68.157/api/packages/view?search=${e.target.value}`
+        `https://13.202.68.157/api/packages/view?search=${e.target.value}`
       );
       setResults(response.data);
     } else {
@@ -85,7 +85,7 @@ function Header() {
               }`}
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns="https://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="black"

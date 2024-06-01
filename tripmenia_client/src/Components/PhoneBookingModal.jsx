@@ -129,7 +129,7 @@ function PhoneBookingModal({
                           </span>
                           <span className="transition-transform duration-200 rotate-0">
                             <svg
-                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns="https://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
                               strokeWidth="1.5"
@@ -169,7 +169,7 @@ function PhoneBookingModal({
                               }
                             >
                               <svg
-                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns="https://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                                 fill="currentColor"
                                 aria-hidden="true"
@@ -191,7 +191,7 @@ function PhoneBookingModal({
                               onClick={() => setGuests(guests + 1)}
                             >
                               <svg
-                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns="https://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                                 fill="currentColor"
                                 aria-hidden="true"
@@ -247,7 +247,7 @@ function PhoneBookingModal({
                   className="flex justify-center items-center gap-2"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={`https://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
+                  href={`httpss://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
                   >
                   <IoLogoWhatsapp size={20} />
                   Book on WhatsApp

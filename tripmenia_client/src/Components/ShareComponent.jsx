@@ -26,7 +26,7 @@ const ShareComponent = ({ shareLinks,setOpenShareLinks,link }) => {
             onClick={() => setOpenShareLinks(false)}
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
@@ -49,7 +49,7 @@ const ShareComponent = ({ shareLinks,setOpenShareLinks,link }) => {
                 style={{ backgroundColor: platform.color, cursor: "pointer" }}
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   viewBox={platform.viewBox}
                   fill="currentColor"
                   className="h-6 w-6"
@@ -78,7 +78,7 @@ const ShareComponent = ({ shareLinks,setOpenShareLinks,link }) => {
           >
             {isLinkCopied ? (
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns="https://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -93,7 +93,7 @@ const ShareComponent = ({ shareLinks,setOpenShareLinks,link }) => {
               </svg>
             ) : (
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns="https://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"

@@ -7,7 +7,7 @@ async function initiatePayment(req, res) {
   try {
     const bookingId = await createBooking(req);
 
-    const url = "https://api-v2.ziina.com/api/payment_intent";
+    const url = "httpss://api-v2.ziina.com/api/payment_intent";
     const options = {
       method: "POST",
       headers: {
@@ -19,8 +19,8 @@ async function initiatePayment(req, res) {
         amount: req.body.amount * 100, // Assuming amount is in AED
         currency_code: "AED",
         message: `Package ${req.body.destination}`,
-        success_url: `https://www.tripmenia.com/success/${bookingId}`,
-        cancel_url: "https://www.tripmenia.com/failure",
+        success_url: `httpss://www.tripmenia.com/success/${bookingId}`,
+        cancel_url: "httpss://www.tripmenia.com/failure",
         // Remove in production
       }),
     };
@@ -59,7 +59,7 @@ async function verifyPayment(req, res) {
       return res.status(404).json({ error: "Booking not found" });
     }
 
-    const url = `https://api-v2.ziina.com/api/payment_intent/${booking.paymentId}`;
+    const url = `httpss://api-v2.ziina.com/api/payment_intent/${booking.paymentId}`;
     const options = {
       method: "GET",
       headers: {

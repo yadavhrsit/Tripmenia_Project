@@ -28,7 +28,7 @@ declare const CreatePaymentIntent: {
                 readonly description: "Whether to create a test payment intent. Test payment intents do not require a payment method\nand can be used to test the payment flow.\n";
             };
         };
-        readonly $schema: "http://json-schema.org/draft-04/schema#";
+        readonly $schema: "https://json-schema.org/draft-04/schema#";
     };
     readonly response: {
         readonly "201": {
@@ -83,7 +83,7 @@ declare const CreatePaymentIntent: {
                     readonly description: "The URL to be called by the hosted web page when the payment is cancelled.";
                 };
             };
-            readonly $schema: "http://json-schema.org/draft-04/schema#";
+            readonly $schema: "https://json-schema.org/draft-04/schema#";
         };
     };
 };
@@ -94,7 +94,7 @@ declare const GetPaymentIntent: {
             readonly properties: {
                 readonly id: {
                     readonly type: "string";
-                    readonly $schema: "http://json-schema.org/draft-04/schema#";
+                    readonly $schema: "https://json-schema.org/draft-04/schema#";
                     readonly description: "ID of the payment intent to get";
                 };
             };
@@ -154,7 +154,7 @@ declare const GetPaymentIntent: {
                     readonly description: "The URL to be called by the hosted web page when the payment is cancelled.";
                 };
             };
-            readonly $schema: "http://json-schema.org/draft-04/schema#";
+            readonly $schema: "https://json-schema.org/draft-04/schema#";
         };
     };
 };

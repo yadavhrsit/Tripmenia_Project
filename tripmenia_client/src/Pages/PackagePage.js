@@ -22,7 +22,7 @@ function PackagePage() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://13.202.68.157/api/packages/viewpackagedetail/${id}`
+          `https://13.202.68.157/api/packages/viewpackagedetail/${id}`
         );
         const data = await response.json();
         setPackageData(data);
@@ -51,7 +51,7 @@ function PackagePage() {
       },
       {
         name: "Telegram",
-        url: `https://telegram.me/share/url?url=${encodeURIComponent(link)}`,
+        url: `httpss://telegram.me/share/url?url=${encodeURIComponent(link)}`,
         color: "rgb(45, 163, 222)",
         viewBox: "0 0 24 24",
         iconPath:
@@ -59,7 +59,7 @@ function PackagePage() {
       },
       {
         name: "Twitter",
-        url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(link)}`,
+        url: `httpss://twitter.com/intent/tweet?url=${encodeURIComponent(link)}`,
         color: "rgb(29, 155, 240)",
         viewBox: "0 0 24 24",
         iconPath:
@@ -67,7 +67,7 @@ function PackagePage() {
       },
       {
         name: "Facebook",
-        url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        url: `httpss://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
           link
         )}`,
         color: "rgb(59, 89, 152)",
@@ -77,7 +77,7 @@ function PackagePage() {
       },
       {
         name: "WhatsApp",
-        url: `https://wa.me/?text=${encodeURIComponent(link)}`,
+        url: `httpss://wa.me/?text=${encodeURIComponent(link)}`,
         color: "rgb(3, 182, 3)",
         viewBox: "0 0 24 24",
         iconPath:
@@ -115,7 +115,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={`http://13.202.68.157/public/upload/${packageData.images[0]}`}
+                    src={`https://13.202.68.157/public/upload/${packageData.images[0]}`}
                   />
                 </div>
                 <div className="relative hidden h-full cursor-pointer md:block">
@@ -133,7 +133,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={`http://13.202.68.157/public/upload/${packageData.images[1]}`}
+                    src={`https://13.202.68.157/public/upload/${packageData.images[1]}`}
                   />
                 </div>
                 <div className="relative hidden h-full cursor-pointer md:block">
@@ -151,7 +151,7 @@ function PackagePage() {
                       inset: 0,
                       color: "transparent",
                     }}
-                    src={`http://13.202.68.157/public/upload/${packageData.images[2]}`}
+                    src={`https://13.202.68.157/public/upload/${packageData.images[2]}`}
                   />
                 </div>
               </div>
@@ -188,7 +188,7 @@ function PackagePage() {
                           data-headlessui-state=""
                         >
                           <svg
-                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns="https://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
@@ -212,7 +212,7 @@ function PackagePage() {
                         onClick={() => setOpenShareLinks(!openShareLinks)}
                       >
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns="https://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                           fill="currentColor"
                           className="h-auto w-5"
@@ -341,7 +341,7 @@ function PackagePage() {
                                 <span className="transition-transform duration-200 rotate-0">
                                   {guestsCounter ? (
                                     <svg
-                                      xmlns="http://www.w3.org/2000/svg"
+                                      xmlns="https://www.w3.org/2000/svg"
                                       fill="none"
                                       viewBox="0 0 24 24"
                                       strokeWidth="1.5"
@@ -356,7 +356,7 @@ function PackagePage() {
                                     </svg>
                                   ) : (
                                     <svg
-                                      xmlns="http://www.w3.org/2000/svg"
+                                      xmlns="https://www.w3.org/2000/svg"
                                       fill="none"
                                       viewBox="0 0 24 24"
                                       strokeWidth="1.5"
@@ -399,7 +399,7 @@ function PackagePage() {
                                     }
                                   >
                                     <svg
-                                      xmlns="http://www.w3.org/2000/svg"
+                                      xmlns="https://www.w3.org/2000/svg"
                                       viewBox="0 0 24 24"
                                       fill="currentColor"
                                       aria-hidden="true"
@@ -421,7 +421,7 @@ function PackagePage() {
                                     onClick={() => setGuests(guests + 1)}
                                   >
                                     <svg
-                                      xmlns="http://www.w3.org/2000/svg"
+                                      xmlns="https://www.w3.org/2000/svg"
                                       viewBox="0 0 24 24"
                                       fill="currentColor"
                                       aria-hidden="true"
@@ -474,7 +474,7 @@ function PackagePage() {
                         className="flex justify-center items-center gap-2"
                         target="_blank"
                         rel="noopener noreferrer"
-                        href={`https://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
+                        href={`httpss://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
                       >
                         <IoLogoWhatsapp size={20} />
                         Book on WhatsApp
@@ -510,7 +510,7 @@ function PackagePage() {
             className="flex justify-center"
             target="_blank"
             rel="noopener noreferrer"
-            href={`https://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
+            href={`httpss://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
           >
             <img
               alt="whatsapp"
