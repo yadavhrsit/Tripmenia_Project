@@ -1,5 +1,13 @@
 import React from "react";
 import logo from "../assets/logo.png";
+import {
+  FaHome,
+  FaCompass,
+  FaPhone,
+  FaWhatsapp,
+  FaEnvelope,
+  FaInstagram,
+} from "react-icons/fa";
 
 function Sidebar({ isOpen, toggleSidebar }) {
   return (
@@ -44,24 +52,60 @@ function Sidebar({ isOpen, toggleSidebar }) {
         </div>
         <div className="flex flex-col justify-between flex-grow">
           <ul className="pt-4 space-y-2">
-            
             <li>
               <a
                 href="/"
                 className="flex items-center gap-3 px-10 py-4 text-base capitalize text-gray-700 hover:bg-gray-200"
               >
+                <FaHome />
                 Home
               </a>
             </li>
             <li>
               <a
-                href="/explore"
+                href="#"
                 className="flex items-center gap-3 px-10 py-4 text-base capitalize text-gray-700 hover:bg-gray-200"
               >
+                <FaCompass />
                 Explore
               </a>
             </li>
-            {/* ... */}
+            <li>
+              <a
+                href="#"
+                className="flex items-center gap-3 px-10 py-4 text-base capitalize text-gray-700 hover:bg-gray-200"
+              >
+                <FaPhone />
+                Call Us
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center gap-3 px-10 py-4 text-base capitalize text-gray-700 hover:bg-gray-200"
+              >
+                <FaWhatsapp />
+                Whatsapp Us
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center gap-3 px-10 py-4 text-base capitalize text-gray-700 hover:bg-gray-200"
+              >
+                <FaEnvelope />
+                Mail
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center gap-3 px-10 py-4 text-base capitalize text-gray-700 hover:bg-gray-200"
+              >
+                <FaInstagram />
+                Follow Us
+              </a>
+            </li>
           </ul>
         </div>
       </div>
