@@ -20,7 +20,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
       <div className="fixed h-full w-full max-w-md translate-x-0 bg-white shadow-xl inset-y-0 left-0">
         <div className="flex items-center justify-between p-6">
           <a href="/" className="text-black">
-            <img src={logo} alt="Tripmenia Logo" className="w-36 h-12" />
+            <img src={logo} alt="Tripmenia Logo" className="w-38 h-12" />
           </a>
           <button
             onClick={toggleSidebar}
