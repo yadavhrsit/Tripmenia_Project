@@ -4,6 +4,8 @@ import Header from './Components/Header';
 import Footer from './Components/Footer'; 
 import PhoneBottomBar from "./Components/PhoneBottomBar";
 import Sidebar from "./Components/Sidebar";
+import FloatingWhatsAppIcon from "./Components/FloatingWhatsAppIcon";
+
 function Layout() {
   const [isOpen, setIsOpen] = useState(false);
   
@@ -12,8 +14,9 @@ function Layout() {
       <Header />
       <Outlet />
       <Footer />
-      <PhoneBottomBar isOpen={isOpen} setIsOpen={setIsOpen}/>
+      <PhoneBottomBar isOpen={isOpen} setIsOpen={setIsOpen} />
       <Sidebar isOpen={isOpen} toggleSidebar={() => setIsOpen(!isOpen)} />
+      <FloatingWhatsAppIcon />
     </div>
   );
 }
