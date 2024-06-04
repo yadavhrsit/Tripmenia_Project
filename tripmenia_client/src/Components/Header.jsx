@@ -76,7 +76,7 @@ function Header() {
           navbar ? "bg-white shadow" : "md:bg-transparent"
         }`}
       >
-        <div className="mx-auto flex justify-between items-center p-0 md:p-8 ">
+        <div className="mx-auto flex justify-between items-center p-0 md:px-6 md:py-4 ">
           <div className="flex pl-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -100,11 +100,11 @@ function Header() {
               </svg>
             </button>
             <Link to="/" className="text-2xl font-bold">
-              <img src={logo} alt="Tripmenia" className="h-12 my-2 mx-4" />
+              <img src={logo} alt="Tripmenia" className="h-8 md:h-12 my-2 mx-4" />
             </Link>
           </div>
           <Sidebar isOpen={isOpen} toggleSidebar={() => setIsOpen(!isOpen)} />
-          <div className="hidden md:flex mx-4 p-1 w-1/3 rounded-full bg-white border-2 border-gray-300 text-gray-800">
+          <div className="hidden md:flex mx-4 p-1 w-[36%] rounded-full bg-white border-2 border-gray-300 text-gray-800">
             <input
               type="text"
               placeholder="Search..."
