@@ -46,7 +46,7 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
     <div className="py-2 lg:py-4 px-8 md:px-16 relative bg-gray-100">
       <Swiper
         slidesPerView={3}
-        spaceBetween={30}
+        spaceBetween={6}
         modules={[Navigation]}
         navigation={{
           prevEl: ".button-prev",
@@ -54,24 +54,24 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
         }}
         breakpoints={{
           320: {
-            slidesPerView: 2,
-            spaceBetween: 10,
+            slidesPerView: 3,
+            spaceBetween: 2,
           },
           480: {
             slidesPerView: 3,
-            spaceBetween: 15,
+            spaceBetween: 4,
           },
           640: {
             slidesPerView: 4,
-            spaceBetween: 20,
+            spaceBetween: 6,
           },
           768: {
             slidesPerView: 5,
-            spaceBetween: 25,
+            spaceBetween: 8,
           },
           1024: {
             slidesPerView: 6,
-            spaceBetween: 30,
+            spaceBetween: 10,
           },
         }}
         onSwiper={(swiper) => {
@@ -80,10 +80,10 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
         className="mySwiper"
       >
         {categories.map((category, index) => (
-          <SwiperSlide key={index} className="w-fit">
+          <SwiperSlide key={index} style={{display:"flex", width:"fit-content"}}>
             <button
               type="button"
-              className={`px-2 py-2 mx-auto rounded-md text-center font-semibold hover:bg-white ${
+              className={`px-2 w-fit text-nowrap text-center py-2 mx-auto rounded-md font-semibold hover:bg-white ${
                 selectedCategory === category._id
                   ? "bg-red-900 text-white hover:text-black relative"
                   : "bg-gray-100 text-black"

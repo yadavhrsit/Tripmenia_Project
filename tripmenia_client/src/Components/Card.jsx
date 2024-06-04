@@ -15,7 +15,7 @@ export default function Card({
   return (
     <div
       to={`/package/${packageId}`}
-      className="max-w-sm h-fit rounded overflow-hidden px-2 hover:shadow-md bg-white cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+      className="h-fit rounded overflow-hidden px-2 hover:shadow-md bg-white cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
     >
       <Link to={`/package/${packageId}`}>
         <img
