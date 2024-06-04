@@ -50,7 +50,7 @@ function CategorySlider({ categoryId, categoryTitle, categoryDescription,selecte
       {packages.length > 0 && (
         <Swiper
           slidesPerView={1}
-          spaceBetween={30}
+          spaceBetween={1}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
@@ -58,19 +58,15 @@ function CategorySlider({ categoryId, categoryTitle, categoryDescription,selecte
           breakpoints={{
             640: {
               slidesPerView: 1,
-              spaceBetween: 20,
             },
             768: {
               slidesPerView: 2,
-              spaceBetween: 40,
             },
             1024: {
               slidesPerView: 3,
-              spaceBetween: 50,
             },
             1280: {
               slidesPerView: 4,
-              spaceBetween: 50,
             },
           }}
           modules={[Autoplay]}
@@ -80,14 +76,14 @@ function CategorySlider({ categoryId, categoryTitle, categoryDescription,selecte
           }}
         >
           {packages?.map((pckg) => (
-            <SwiperSlide key={pckg._id} className="md:p-4">
+            <SwiperSlide key={pckg._id}>
               <Card
                 categoryName={categoryTitle || "Category Name"}
                 packageName={pckg.packageName || "Package Name"}
-                price={pckg.price || 1000}
-                discount={pckg.discount || 55}
+                price={pckg.price || 0}
+                discount={pckg.discount || 0}
                 image={`https://tripmenia.com/public/upload/${pckg.images[0]}`}
-                specialPrice={pckg.specialPrice || 500}
+                specialPrice={pckg.specialPrice || 0}
                 packageId={pckg._id}
               />
             </SwiperSlide>

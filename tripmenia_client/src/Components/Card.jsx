@@ -15,7 +15,7 @@ export default function Card({
   return (
     <div
       to={`/package/${packageId}`}
-      className="h-fit rounded overflow-hidden px-2 hover:shadow-md bg-white cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+      className="h-fit rounded overflow-hidden px-2 py-1 hover:shadow-md bg-white cursor-pointer hover:bg-gray-100 transition duration-300 ease-in-out"
     >
       <Link to={`/package/${packageId}`}>
         <img
