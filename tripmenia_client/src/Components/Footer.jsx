@@ -9,7 +9,6 @@ const Footer = () => {
   return (
     <>
       <HomeBottomBanner />
-
       <footer className="px-4 lg:px-6 xl:px-8 2xl:px-10">
         <div className="container-fluid mb-4">
           <div className="flex flex-col md:mb-6 md:flex-row md:items-center md:justify-between md:border-t md:border-t-gray-lighter md:pt-6 lg:mb-8 lg:pt-8">
@@ -27,13 +26,12 @@ const Footer = () => {
               </p>
             </div>
             <nav className="order-1 border-b border-gray-lighter pb-4 md:order-none md:border-b-0 md:pb-0">
-              <ul className="flex flex-wrap items-center justify-center md:justify-end">
-                <li className="px-4 first:pl-0 last:pr-0 lg:px-6">
-                  <a
-                    target="blank"
-                    rel="noReferrer"
-                    href="#"
-                  >
+              <ul className="flex flex-wrap items-center justify-center md:justify-end list-none mb-4">
+                <li
+                  className="px-4 lg:px-6 list-none"
+                  style={{ listStyle: "none !important" }}
+                >
+                  <a target="blank" rel="noReferrer" href="#">
                     <img
                       alt="google"
                       loading="lazy"
@@ -46,11 +44,11 @@ const Footer = () => {
                     />
                   </a>
                 </li>
-                <li className="px-4 first:pl-0 last:pr-0 lg:px-6">
-                  <a
-                    target="blank"
-                    href="httpss://www.tripadvisor.com/"
-                  >
+                <li
+                  className="px-4 first:pl-0 last:pr-0 lg:px-6"
+                  style={{ listStyle: "none !important" }}
+                >
+                  <a target="blank" href="httpss://www.tripadvisor.com/">
                     <img
                       alt="google"
                       loading="lazy"
@@ -63,7 +61,10 @@ const Footer = () => {
                     />
                   </a>
                 </li>
-                <li className="px-2 md:px-4 flex gap-2 first:pl-0 last:pr-0 lg:px-6">
+                <li
+                  className="px-2 md:px-4 flex gap-2 first:pl-0 last:pr-0 lg:px-6"
+                  style={{ listStyle: "none !important" }}
+                >
                   <svg
                     xmlns="https://www.w3.org/2000/svg"
                     width="30"
@@ -101,7 +102,10 @@ const Footer = () => {
                   <img src={googlepay} width={30} height={30} alt="googlepay" />
                 </li>
 
-                <li className="px-4 first:pl-0 last:pr-0 lg:px-6 sm:block hidden">
+                <li
+                  className="px-4 first:pl-0 last:pr-0 lg:px-6 sm:block hidden"
+                  style={{ listStyle: "none !important" }}
+                >
                   <a
                     target="_blank"
                     rel="noReferrer"
@@ -164,7 +168,7 @@ const Footer = () => {
                     Home
                   </a>
                 </li>
-                
+
                 <li className="hidden md:block px-4 first:pl-0 last:pr-0 lg:px-6">
                   <a
                     className="block text-sm font-normal capitalize leading-4 text-primary 3xl:text-base"
