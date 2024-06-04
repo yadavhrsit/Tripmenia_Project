@@ -38,16 +38,16 @@ export default function Card({
           <div className="flex justify-between items-center">
             <div className="flex justify-between items-center gap-1">
               <p className="font-semibold text-left  text-zinc-600 text-xs mb-1 line-through ">
-                {price}
+                AED {price}
               </p>
-              <p className="text-gray-700 text-sm mb-1">{specialPrice}</p>
+              <p className="text-gray-700 text-sm mb-1">AED {specialPrice}</p>
               <p className="text-white text-xs mb-1 text-nowrap bg-customPurple p-1 rounded">
                 {discount}% OFF
               </p>
             </div>
 
             <div className="flex justify-between items-center gap-1 ">
-              <IoLogoWhatsapp className="text-lg mb-2" />
+              <IoLogoWhatsapp className="text-2xl mb-2 text-green-600" />
               <Link
                 to={`/package/${packageId}`}
                 className="bg-black text-nowrap hover:bg-customPurple text-white font-bold py-1 px-2 mb-2 text-sm rounded"
