@@ -70,7 +70,7 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
             spaceBetween: 8,
           },
           1024: {
-            slidesPerView: 6,
+            slidesPerView: 10,
             spaceBetween: 10,
           },
         }}
@@ -80,19 +80,22 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
         className="mySwiper"
       >
         {categories.map((category, index) => (
-          <SwiperSlide key={index} style={{display:"flex", width:"fit-content"}}>
+          <SwiperSlide
+            key={index}
+            style={{ display: "flex", width: "fit-content" }}
+          >
             <button
               type="button"
               className={`px-2 w-fit text-nowrap text-center py-2 mx-auto rounded-md font-semibold hover:bg-white ${
                 selectedCategory === category._id
-                  ? "bg-red-900 text-white hover:text-black relative"
+                  ? "bg-[#89519f] text-white hover:text-black relative"
                   : "bg-gray-100 text-black"
               } text-xs md:text-sm xl:text-base`}
               onClick={() => handleCategoryClick(category._id, index)}
             >
               {category.categoryName}
               {selectedCategory === category._id && (
-                <IoIosCloseCircle className="absolute text-gray-200 right-0 top-0 hover:text-red-900" />
+                <IoIosCloseCircle className="absolute text-gray-200 right-0 top-0 hover:text-[#89519f]" />
               )}
             </button>
           </SwiperSlide>

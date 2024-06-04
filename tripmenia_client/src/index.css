@@ -3,7 +3,12 @@
 @tailwind utilities;
 html{
     min-height: 100vh;
+    list-style: none !important;
 }
 body,#root{
     min-height: 100vh;
+}
+#description ul li{ 
+    list-style: bullet !important;
+    list-style-type: circle !important;
 }

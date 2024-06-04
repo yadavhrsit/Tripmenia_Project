@@ -5,7 +5,7 @@ import questions from "../assets/questions.webp";
 import whatsapp from "../assets/icons/whatsapp.png";
 import BookingForm from "../Components/BookingForm";
 import PhoneBookingModal from "../Components/PhoneBookingModal";
-import "../css/li.css";
+
 import ShareComponent from "../Components/ShareComponent";
 function PackagePage() {
   const { id } = useParams();
@@ -228,6 +228,7 @@ function PackagePage() {
                 </div>
                 <div
                   dangerouslySetInnerHTML={{ __html: packageData.description }}
+                  id="description"
                 />
 
                 <section className="py-5 xl:py-7 mt-2">
