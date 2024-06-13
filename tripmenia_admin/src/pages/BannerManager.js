@@ -87,7 +87,7 @@ function BannerManager() {
                     <h2>Top Banner</h2>
                     {banners.topBanner && (
                       <img
-                        src={`https://tripmenia.com/api/${banners.topBanner}`}
+                        src={`https://tripmenia.com/${banners.topBanner}`}
                         alt="Top Banner"
                       />
                     )}
@@ -110,7 +110,7 @@ function BannerManager() {
                     <h2>Middle Banner</h2>
                     {banners.middleBanner && (
                       <img
-                        src={`https://tripmenia.com/api/${banners.middleBanner}`}
+                        src={`https://tripmenia.com/${banners.middleBanner}`}
                         alt="Middle Banner"
                       />
                     )}
@@ -133,7 +133,7 @@ function BannerManager() {
                     <h2>Footer Banner</h2>
                     {banners.footerBanner && (
                       <img
-                        src={`https://tripmenia.com/api/${banners.footerBanner}`}
+                        src={`https://tripmenia.com/${banners.footerBanner}`}
                         alt="Footer Banner"
                       />
                     )}
