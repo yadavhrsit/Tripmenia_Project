@@ -86,7 +86,10 @@ function BannerManager() {
                   <div>
                     <h2>Top Banner</h2>
                     {banners.topBanner && (
-                      <img src={banners.topBanner} alt="Top Banner" />
+                      <img
+                        src={`https://tripmenia.com/api/${banners.topBanner}`}
+                        alt="Top Banner"
+                      />
                     )}
                     <form
                       onSubmit={(e) =>
@@ -106,7 +109,10 @@ function BannerManager() {
                   <div>
                     <h2>Middle Banner</h2>
                     {banners.middleBanner && (
-                      <img src={banners.middleBanner} alt="Middle Banner" />
+                      <img
+                        src={`https://tripmenia.com/api/${banners.middleBanner}`}
+                        alt="Middle Banner"
+                      />
                     )}
                     <form
                       onSubmit={(e) =>
@@ -126,7 +132,10 @@ function BannerManager() {
                   <div>
                     <h2>Footer Banner</h2>
                     {banners.footerBanner && (
-                      <img src={banners.footerBanner} alt="Footer Banner" />
+                      <img
+                        src={`https://tripmenia.com/api/${banners.footerBanner}`}
+                        alt="Footer Banner"
+                      />
                     )}
                     <form
                       onSubmit={(e) =>
