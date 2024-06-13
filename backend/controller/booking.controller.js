@@ -68,7 +68,10 @@ const viewBookings = async (req, res) => {
       .skip(skip)
       .limit(size);
 
-    res.status(200).json(bookings);
+    const total = await bookingModel.countDocuments(query);
+    const pages = Math.ceil(total / size);
+
+    res.status(200).json({ bookings, total, pages });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });

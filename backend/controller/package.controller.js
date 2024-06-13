@@ -18,8 +18,7 @@ const AddPackage = async (req, res) => {
       enabled,
       timeSlots,
     } = req.body;
-    console.log(req.files);
-    console.log(req.files.length);
+
     const images = req.files.map((file) => file.filename); // Get the paths of the uploaded images
 
     const package = new packageModel({
@@ -60,7 +59,10 @@ const GetAllPackages = async (req, res) => {
       .limit(size)
       .populate("categoryId");
 
-    res.json(packages);
+    const totalPackages = await packageModel.countDocuments(query);
+    const totalPages = Math.ceil(totalPackages / size);
+
+    res.json({ packages, totalPages });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -84,7 +86,7 @@ const getPackagesByCategoryId = async (req, res) => {
     size = parseInt(size) || 50;
     const skip = (page - 1) * size;
 
-    const query = { categoryId: req.params.id,enabled:true };
+    const query = { categoryId: req.params.id, enabled: true };
     if (search) query.name = { $regex: search, $options: "i" };
 
     const packages = await packageModel
@@ -110,7 +112,7 @@ const getFilteredPackages = async (req, res) => {
     const skip = (pageInt - 1) * sizeInt;
 
     // Construct query object
-    const query = {enabled:true};
+    const query = { enabled: true };
     if (categories) {
       query.categoryId = { $in: categories.split(",") };
     }
@@ -136,7 +138,7 @@ const getFilteredPackages = async (req, res) => {
       .limit(sizeInt)
       .populate("categoryId");
 
-    const total = await packageModel.countDocuments({enabled:true});
+    const total = await packageModel.countDocuments({ enabled: true });
     const queryTotal = await packageModel.countDocuments(query);
 
     res.json({ packages, total, queryTotal });
@@ -148,9 +150,34 @@ const getFilteredPackages = async (req, res) => {
 
 const UpdatePackage = async (req, res) => {
   try {
+    const {
+      categoryId,
+      packageName,
+      price,
+      specialPrice,
+      packageUSP,
+      description,
+      enabled,
+      timeSlots,
+    } = req.body;
+    
+    const images = req.files.map((file) => file.filename);
+
+    const update = {
+      images,
+      categoryId,
+      packageName,
+      price,
+      specialPrice,
+      packageUSP,
+      description,
+      enabled,
+      timeSlots,
+    };
+
     const updatedPackage = await packageModel.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      update,
       { new: true }
     );
     res.json(updatedPackage);
