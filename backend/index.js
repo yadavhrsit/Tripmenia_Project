@@ -4,6 +4,7 @@ const app = express();
 require('dotenv').config();
 const morgan = require('morgan')
 
+const HomeBanner = require('./models/bannersModel');
 
 // Import the router files
 const adminRoutes = require('./routes/adminRoutes');
@@ -33,6 +34,8 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/packages", packageRoutes);
 app.use("/api/banners", bannerrouter);
 app.use("/api/bookings", bookingRoutes);
+
+
 
 app.use("/api/test", (req, res) => {
   return res.send("Server is running");

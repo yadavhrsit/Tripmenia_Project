@@ -48,7 +48,7 @@ packageRoutes.get("/filter-view", getFilteredPackages);
 packageRoutes.post("/add", jwtHandler, uploadMiddleware, AddPackage);
 
 // Update a package
-packageRoutes.put("/:id", jwtHandler, UpdatePackage);
+packageRoutes.put("/:id", jwtHandler, uploadMiddleware, UpdatePackage);
 
 // View package by id
 packageRoutes.get("/viewpackagedetail/:id", ViewPackageById);

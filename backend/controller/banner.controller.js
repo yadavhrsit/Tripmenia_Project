@@ -1,4 +1,4 @@
-const bannerModel = require('../models/bannersModel');
+const Banner = require('../models/bannersModel');
 
 const updateTopBanner = async (req, res) => {
     try {
@@ -34,8 +34,21 @@ const updateFooterBanner = async (req, res) => {
     }
 };
 
+// getBanner function
+const getBanner = async (req, res) => {
+    try {
+        const banner = await Banner.find();
+        res.status(200).json({ banner });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
 
 
-
-
-module.exports = { updateTopBanner,updateMiddleBanner,updateFooterBanner };
+module.exports = {
+  updateTopBanner,
+  updateMiddleBanner,
+  updateFooterBanner,
+  getBanner,
+};
