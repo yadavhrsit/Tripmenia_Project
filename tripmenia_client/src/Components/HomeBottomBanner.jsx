@@ -1,7 +1,22 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import image from "../assets/bodyBottomBanner.webp";
 
 const HomeBottomBanner = () => {
+  const [banners, setBanners] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          "https://tripmenia.com/api/banners/get-banner"
+        );
+        const data = await response.json();
+        setBanners(data.banner);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    fetchData();
+  }, []);
   return (
     <div className="container-fluid my-12 !px-0 md:!px-6 lg:my-16 2xl:!px-7 2xl::!px-16">
       <div className="relative md:px-12 md:py-12 lg:px-14 xl:px-20 xl:py-16  2xl::px-40 2xl:py-[88px] py-20 px-4 md:pl-0 md:!pb-16 xl:!py-20">
@@ -22,8 +37,11 @@ const HomeBottomBanner = () => {
             color: "transparent",
           }}
           sizes="100vw"
-          srcSet={`${image} 640w, ${image} 750w, ${image} 828w, ${image} 1080w, ${image} 1200w, ${image} 1920w, ${image} 2048w, ${image} 3840w`}
-          src={image}
+          
+          src={`https://tripmenia.com/${
+            banners.find((banner) => banner.name === "footerBanner")
+              ?.imagePath || image
+          }`}
         />
         <div className="relative bg-white shadow-card md:bg-transparent md:shadow-none max-w-[500px] md:max-w-[380px] rounded-lg m-auto md:!ml-auto md:!mr-0 lg:max-w-[440px] xl:max-w-[500px] px-4 pb-4 pt-8 md:px-0 md:pb-0 md:pt-0">
           <h2 className="text-center text-2xl font-bold text-black md:text-white md:text-left md:text-3xl xl:mb-6 2xl:text-5xl !text-primary md:!text-white text-2xl 2xl:text-[44px] 2xl:leading-[64px] mb-2 xl:mb-5">

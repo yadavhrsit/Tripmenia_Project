@@ -58,7 +58,10 @@ function Banner() {
           color: "transparent",
         }}
         sizes="100vw"
-        src={banner}
+        src={`https://tripmenia.com/${
+          banners.find((banner) => banner.name === "topBanner")?.imagePath ||
+          banner
+        }`}
       />
     </div>
   );
