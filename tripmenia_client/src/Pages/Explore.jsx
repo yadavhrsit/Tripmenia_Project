@@ -124,7 +124,6 @@ function Explore() {
               queryTotal={queryTotal}
               closeModal={closeModal}
             />
-            
           </div>
         </div>
       </div>
@@ -148,7 +147,10 @@ function Explore() {
               categoryName={pckg.categoryId.categoryName || "Category Name"}
               packageName={pckg.packageName || "Package Name"}
               price={pckg.price || 1000}
-              discount={pckg.discount || 55}
+              discount={(
+                ((pckg.price - pckg.specialPrice) / pckg.price) *
+                100
+              ).toFixed(0)}
               image={`https://tripmenia.com/public/upload/${pckg.images[0]}`}
               specialPrice={pckg.specialPrice || 500}
               packageId={pckg._id}
