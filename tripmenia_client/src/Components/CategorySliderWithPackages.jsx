@@ -82,8 +82,8 @@ function CategorySlider({ categoryId, categoryTitle, categoryDescription,selecte
                 packageName={pckg.packageName || "Package Name"}
                 price={pckg.price || 0}
                 discount={(
-                  ((pckg.price - pckg.specialPrice) * 100) /
-                  pckg.specialPrice
+                  ((pckg.price - pckg.specialPrice) / pckg.price) *
+                  100
                 ).toFixed(0)}
                 image={`https://tripmenia.com/public/upload/${pckg.images[0]}`}
                 specialPrice={pckg.specialPrice || 0}

@@ -287,11 +287,11 @@ function PackagePage() {
                       </span>
                       <span className="ml-2 bg-customPurple text-white p-1 rounded font-bold xl:text-[15px]">
                         Save{" "}
-                        {parseInt(
+                        {(
                           ((packageData.price - packageData.specialPrice) /
                             packageData.price) *
                             100
-                        )}
+                        ).toFixed(0)}
                         %
                       </span>
                     </p>
