@@ -25,9 +25,12 @@ connectDb();
 
 
 const PORT = process.env.PORT || 5000;
-app.use(cors({
-  origin: 'https://tripmenia.com'}
-));
+const corsOptions = {
+  origin: ["https://tripmenia.com", "https://admin.tripmenia.com"],
+};
+
+app.use(cors(corsOptions));
+
 
 app.use(express.static(path.join(__dirname, '/public')));
 // Use the routers
