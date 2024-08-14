@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import banner from "../assets/banner.jpg";
+import {useNavigate} from "react-router-dom";
 
 function Banner() {
   const [banners, setBanners] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -18,7 +21,7 @@ function Banner() {
     fetchData();
   }, []);
   return (
-    <div className="relative md:h-[85vh] md:pt-0 pt-8">
+    <div className="relative md:h-[85vh] md:pt-0 pt-8 cursor-pointer" onClick={(()=>navigate('/explore'))}>
       <img
         alt="Home banner for web"
         fetchPriority="high"
