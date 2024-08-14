@@ -50,7 +50,7 @@ const removeFiles = (files) => {
 
 // Custom file upload middleware
 const uploadMiddleware = (req, res, next) => {
-  upload.array("images", 3)(req, res, (err) => {
+  upload.array("images", 5)(req, res, (err) => {
     if (err) {
       console.log(err);
       return res.status(400).json({ error: err.message });
