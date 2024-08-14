@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import  { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { IoSearch } from "react-icons/io5";
@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 import axios from "axios";
 
 function Header() {
+ 
   const [navbar, setNavbar] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,8 @@ function Header() {
 
   const location = useLocation();
   const navigate = useNavigate();
+
+   console.log(location.pathname);
 
   const changeBackground = () => {
     if (window.scrollY >= 80) {
@@ -135,7 +138,7 @@ function Header() {
           </div>
           <div
             className={`hidden font-medium md:flex space-x-8 ${
-              location.pathname === "tripmenia.com" && navbar
+              location.pathname === "/" && navbar
                 ? "text-white"
                 : "text-black"
             } mr-6`}
