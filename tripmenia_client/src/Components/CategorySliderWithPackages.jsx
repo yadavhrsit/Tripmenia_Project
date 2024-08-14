@@ -29,7 +29,7 @@ function CategorySlider({ categoryId, categoryTitle, categoryDescription,selecte
   }, [categoryId, categoryTitle, categoryDescription]);
 
   return (
-    <div className="px-4 lg:px-6 xl:px-8 2xl:px-10 my-6 lg:my-12 shadow">
+    <div className="px-4 lg:px-6 xl:px-8 2xl:px-10 my-6 lg:my-12">
       <div className="flex gap-2 justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-zinc-800 mb-2">

@@ -10,6 +10,7 @@ import ShareComponent from "../Components/ShareComponent";
 import Breadcrumbs from "../Components/Breadcrumbs";
 import MobileSwiper from "../Components/MobileSwiper";
 import CustomImageGallery from "../Components/CustomImageGallery";
+
 function PackagePage() {
   const { package_id } = useParams();
   const [packageData, setPackageData] = useState(null);
@@ -122,7 +123,7 @@ function PackagePage() {
     <div>Loading...</div>
   ) : (
     <>
-      <div className="px-4 lg:px-14 pt-2 lg:pt-24 w-11/12 lg:mt-8 mx-auto">
+      <div className="px-4 lg:px-14 pt-2 lg:pt-24 lg:w-10/12 lg:mt-8 mx-auto">
         <Breadcrumbs items={breadcrumbs} />
         <div className="container-fluid w-full 3xl:!px-12">
           <div className="relative -mx-4 mb-8 sm:-mx-6 md:-mx-0 md:mt-4 lg:mb-14 lg:mt-6">

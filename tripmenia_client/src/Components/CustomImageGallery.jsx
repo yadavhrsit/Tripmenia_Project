@@ -1,194 +1,120 @@
-import { useState, useRef } from "react";
-import ReactModal from "react-modal";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import "./CustomImageGallery.css";
+const CustomModalWithSlider = ({ images }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-const CustomImageGallery = ({ images }) => {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [clicked, setClicked] = useState(0);
+  const openModal = (index) => {
+    setActiveIndex(index);
+    setIsOpen(true);
+  };
 
-  const openModal = () => setModalIsOpen(true);
-  const closeModal = () => setModalIsOpen(false);
+  const closeModal = () => setIsOpen(false);
 
-  const galleryImages = images.map((image) => ({
-    original: `https://tripmenia.com/public/upload/${image}`,
-    thumbnail: `https://tripmenia.com/public/upload/${image}`,
-  }));
+  const sliderSettings = {
+    customPaging: function (i) {
+      return (
+        <a>
+          <img src={`https://tripmenia.com/public/upload/${images[i]}`} />
+        </a>
+      );
+    },
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: activeIndex,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
+
+  function NextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  function PrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block",  }}
+        onClick={onClick}
+      />
+    );
+  }
 
   return (
     <>
-      <div className="relative hidden md:grid h-[260px] grid-cols-1 grid-rows-2 gap-0 overflow-hidden transition-all duration-300 sm:h-[320px] md:h-[400px] md:grid-cols-[1fr_0.5fr_0.5fr] md:gap-1 md:rounded-xl lg:h-[500px] xl:h-[600px] xl:gap-2 3xl:h-[700px] 3xl:gap-3">
-        <div
-          onClick={() => {
-            setClicked(0);
-            openModal();
-          }}
-          className="relative hidden md:block row-start-1 row-end-3 h-full cursor-pointer"
-        >
-          <img
-            alt="pic 1"
-            className="object-cover w-full h-full"
-            src={`https://tripmenia.com/public/upload/${images[0]}`}
-          />
-        </div>
-        <div
-          onClick={() => {
-            setClicked(1);
-            openModal();
-          }}
-          className="relative hidden h-full cursor-pointer md:block"
-        >
-          <img
-            alt="pic 2"
-            className="object-cover w-full h-full"
-            src={`https://tripmenia.com/public/upload/${images[1]}`}
-          />
-        </div>
-        <div
-          className="relative hidden h-full cursor-pointer md:block"
-          onClick={() => {
-            setClicked(2);
-            openModal();
-          }}
-        >
-          <img
-            alt="pic 3"
-            className="object-cover w-full h-full"
-            src={`https://tripmenia.com/public/upload/${images[2]}`}
-          />
-        </div>
-        <div
-          className="relative hidden h-full cursor-pointer md:block"
-          onClick={() => {
-            setClicked(3);
-            openModal();
-          }}
-        >
-          <img
-            alt="pic 4"
-            className="object-cover w-full h-full"
-            src={`https://tripmenia.com/public/upload/${images[3]}`}
-          />
-        </div>
-        <div
-          className="relative hidden h-full cursor-pointer md:block"
-          onClick={() => {
-            setClicked(4);
-            openModal();
-          }}
-        >
-          <img
-            alt="pic 5"
-            className="object-cover w-full h-full"
-            src={`https://tripmenia.com/public/upload/${images[4]}`}
-          />
-        </div>
+      {/* Image Grid Trigger */}
+      <div className="relative hidden md:grid h-[260px] grid-cols-1 grid-rows-2 gap-0 overflow-hidden transition-all duration-300 sm:h-[220px] md:h-[360px] md:grid-cols-[1fr_0.5fr_0.5fr] md:gap-1 md:rounded-xl lg:h-[300px] xl:h-[400px] xl:gap-2 3xl:h-[500px] 3xl:gap-3">
+        {images.slice(0, 5).map((image, index) => (
+          <div
+            key={index}
+            onClick={() => openModal(index)}
+            className={`relative hidden md:block h-full cursor-pointer ${
+              index === 0 ? "row-start-1 row-end-3" : ""
+            }`}
+          >
+            <img
+              alt={`pic ${index + 1}`}
+              className="object-cover w-full h-full"
+              src={`https://tripmenia.com/public/upload/${image}`}
+            />
+          </div>
+        ))}
         <button
-          onClick={openModal}
+          onClick={() => openModal(0)}
           className="absolute top-2 right-2 bg-black bg-opacity-50 text-white py-1 px-3 rounded-md hover:bg-opacity-70 transition"
         >
           View Photos
         </button>
       </div>
 
-      <ReactModal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Image Gallery"
-        className="flex justify-center items-center bg-transparent outline-none"
-        overlayClassName="fixed z-[60] inset-0 bg-black bg-opacity-90 flex justify-center items-center p-4"
-      >
-        <div
-          id="custom"
-          className="relative w-full max-w-screen-lg max-h-screen"
-        >
-          <button
-            onClick={closeModal}
-            className="absolute top-4 right-4 z-50 bg-black bg-opacity-60 text-white py-2 px-4 rounded-full hover:bg-opacity-80 transition focus:outline-none focus:ring-2 focus:ring-white"
-          >
-            ✕
-          </button>
-
-          {/* Main Swiper */}
-          <Swiper
-            modules={[Navigation, Pagination]}
-            pagination={{ clickable: true, dynamicBullets: true }}
-            spaceBetween={30}
-            slidesPerView={1}
-            centeredSlides={true}
-            className="w-full h-[80vh]"
-            navigation={{
-              prevEl: navigationPrevRef.current,
-              nextEl: navigationNextRef.current,
-            }}
-            initialSlide={clicked}
-            onBeforeInit={(swiper) => {
-              swiper.params.navigation.prevEl = navigationPrevRef.current;
-              swiper.params.navigation.nextEl = navigationNextRef.current;
-            }}
-            loop={true}
-          >
-            {galleryImages.map((item, index) => (
-              <SwiperSlide key={index}>
-                <div className="w-full h-full flex justify-center items-center relative">
-                  <img
-                    src={item.original}
-                    alt={`Slide ${index + 1}`}
-                    className="object-cover w-full h-full rounded-lg relative"
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* Thumbnail Swiper */}
-
-          <div className="nav-btn custom-prev-button" ref={navigationPrevRef}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              className="main-grid-item-icon"
-              fill="none"
-              stroke="#fff"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
+      {/* Modal */}
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+          <div className="relative w-full max-w-5xl py-12 px-16 bg-black bg-opacity-40 rounded-lg shadow-lg">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 text-white bg-black rounded-full w-8 h-8 hover:bg-opacity-80 transition"
             >
-              <line x1="19" x2="5" y1="12" y2="12" />
-              <polyline points="12 19 5 12 12 5" />
-            </svg>
-          </div>
+              ✕
+            </button>
 
-          <div className="nav-btn custom-next-button" ref={navigationNextRef}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              className="main-grid-item-icon"
-              fill="none"
-              stroke="#fff"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-            >
-              <line x1="5" x2="19" y1="12" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+            {/* Slick Slider */}
+            <div className="w-full h-[80vh]">
+              <Slider {...sliderSettings}>
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-center items-center h-full"
+                  >
+                    <img
+                      src={`https://tripmenia.com/public/upload/${image}`}
+                      alt={`pic ${index + 1}`}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
-      </ReactModal>
+      )}
     </>
   );
 };
 
-export default CustomImageGallery;
+export default CustomModalWithSlider;

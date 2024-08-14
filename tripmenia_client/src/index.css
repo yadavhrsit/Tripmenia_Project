@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.slick-dots li{
+  width: 200px !important;
+}
