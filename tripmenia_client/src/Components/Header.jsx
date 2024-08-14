@@ -18,7 +18,7 @@ function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
-   console.log(location.pathname);
+    console.log(location.pathname);
 
   const changeBackground = () => {
     if (window.scrollY >= 80) {
@@ -138,9 +138,9 @@ function Header() {
           </div>
           <div
             className={`hidden font-medium md:flex space-x-8 ${
-              location.pathname === "/" && navbar
-                ? "text-white"
-                : "text-black"
+              location.pathname !== "/" || navbar
+                ? "text-black"
+                : "text-white"
             } mr-6`}
           >
             <Link to="/" className="text-lg">
