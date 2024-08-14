@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link,useLocation,useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { IoSearch } from "react-icons/io5";
 import Sidebar from "./Sidebar";
@@ -8,7 +8,7 @@ import axios from "axios";
 function Header() {
   const [navbar, setNavbar] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); 
+  const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
 
@@ -100,7 +100,11 @@ function Header() {
               </svg>
             </button>
             <Link to="/" className="text-2xl font-bold">
-              <img src={logo} alt="Tripmenia" className="h-8 md:h-12 my-2 mx-4" />
+              <img
+                src={logo}
+                alt="Tripmenia"
+                className="h-8 md:h-12 my-2 mx-4"
+              />
             </Link>
           </div>
           <Sidebar isOpen={isOpen} toggleSidebar={() => setIsOpen(!isOpen)} />
@@ -131,13 +135,9 @@ function Header() {
           </div>
           <div
             className={`hidden font-medium md:flex space-x-8 ${
-              location.pathname.includes("explore") ||
-              location.pathname.includes("success") ||
-              location.pathname.includes("failure") ||
-              location.pathname.includes("package") ||
-              navbar
-                ? "text-black"
-                : "text-white"
+              location.pathname === "tripmenia.com" && navbar
+                ? "text-white"
+                : "text-black"
             } mr-6`}
           >
             <Link to="/" className="text-lg">
