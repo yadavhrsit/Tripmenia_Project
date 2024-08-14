@@ -225,7 +225,7 @@ function PackagePage() {
               <div
                 dangerouslySetInnerHTML={{ __html: packageData.description }}
                 id="description"
-                className="px-4 mt-4"
+                className="mt-4"
               />
 
               <section className="py-5 xl:py-7 mt-2">
