@@ -11,6 +11,7 @@ export default function EditPackage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
+  const [initialPackageData, setInitialPackageData] = useState({});
   const [packageData, setPackageData] = useState({
     categoryId: "",
     packageName: "",
@@ -21,9 +22,10 @@ export default function EditPackage() {
     description: "",
     enabled: true,
     timeSlots: [],
+    perks: [],
   });
-  const [timeSlots, setTimeSlots] = useState([{}]);
   const [editorHtml, setEditorHtml] = useState("");
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const fetchPackageDetails = async () => {
@@ -33,6 +35,7 @@ export default function EditPackage() {
           navigate("/");
           return;
         }
+
         const response = await axios.get(
           `${API}/packages/viewpackagedetail/${id}`,
           {
@@ -41,31 +44,56 @@ export default function EditPackage() {
             },
           }
         );
-        const {
-          packageName,
-          price,
-          specialPrice,
-          packageUSP,
-          description,
-          enabled,
-          timeSlots,
-          images,
-        } = response.data;
-        const categoryId = response.data.categoryId._id;
-        setPackageData({
-          categoryId,
-          packageName,
-          price,
-          specialPrice,
-          packageUSP,
-          description,
-          enabled,
-          timeSlots,
-          images: [...images], // Copying images array to retain existing images
+
+        const formatTime = (time) => {
+          // Convert time to HH:MM format if necessary
+          const [hours, minutes] = time.split(":");
+          console.log(`${hours.padStart(2, "0")}:${minutes.padStart(2, "0")}`);
+          return `${hours.padStart(2, "0")}:${minutes.padStart(2, "0")}`;
+        };
+
+        const data = response.data;
+        data.timeSlots.forEach((slot) => {
+          console.log(slot);
         });
-        setEditorHtml(description); // Set HTML editor content
+
+        setPackageData({
+          categoryId: data.categoryId._id,
+          packageName: data.packageName,
+          price: data.price,
+          specialPrice: data.specialPrice,
+          packageUSP: data.packageUSP,
+          description: data.description,
+          enabled: data.enabled,
+          timeSlots: data.timeSlots.map((slot) => ({
+            from: formatTime(slot.from) || slot.from, // Ensure time is in HH:MM format
+            to: formatTime(slot.to) || slot.to, // Ensure time is in HH:MM format
+          })),
+          images: data.images || [],
+          perks: data.perks || [],
+        });
+        setInitialPackageData({
+          categoryId: data.categoryId._id,
+          packageName: data.packageName,
+          price: data.price,
+          specialPrice: data.specialPrice,
+          packageUSP: data.packageUSP,
+          description: data.description,
+          enabled: data.enabled,
+          timeSlots: data.timeSlots.map((slot) => ({
+            from: formatTime(slot.from) || slot.from, // Ensure time is in HH:MM format
+            to: formatTime(slot.to) || slot.to, // Ensure time is in HH:MM format
+          })),
+          images: data.images || [],
+          perks: data.perks || [],
+        });
+        setEditorHtml(data.description);
       } catch (error) {
         console.error("Error fetching package details:", error);
+        setErrors((prev) => ({
+          ...prev,
+          fetch: "Failed to load package details.",
+        }));
       }
     };
     fetchPackageDetails();
@@ -78,36 +106,34 @@ export default function EditPackage() {
         setCategories(response.data);
       } catch (error) {
         console.error("Error fetching categories:", error);
+        setErrors((prev) => ({
+          ...prev,
+          fetchCategories: "Failed to load categories.",
+        }));
       }
     };
     fetchCategories();
   }, []);
 
   const handleImageChange = (e) => {
-    const files = e.target.files;
-    const newImages = [...packageData.images]; // Copy current images array
-
+    const files = Array.from(e.target.files);
+    const newImages = [...packageData.images];
     const imagesErrors = [];
 
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
+    files.forEach((file) => {
       if (file.size > 500000) {
-        imagesErrors.push(" Size is too large");
+        imagesErrors.push("Size is too large");
+        return;
       }
-      if (
-        !file.type.startsWith("image/webp") &&
-        !file.type.startsWith("image/jpeg") &&
-        !file.type.startsWith("image/jpg")
-      ) {
-        imagesErrors.push(" Please upload jpg/jpeg/webp only");
+      if (!["image/jpeg", "image/jpg", "image/webp"].includes(file.type)) {
+        imagesErrors.push("Please upload jpg/jpeg/webp only");
+        return;
       }
-      newImages.push(file); // Add new file to the newImages array
-    }
+      newImages.push(file);
+    });
 
-    setPackageData((prev) => ({
-      ...prev,
-      images: newImages,
-    }));
+    setErrors((prev) => ({ ...prev, images: imagesErrors.join(", ") }));
+    setPackageData((prev) => ({ ...prev, images: newImages }));
   };
 
   const handleRemoveImage = (index) => {
@@ -118,22 +144,103 @@ export default function EditPackage() {
   };
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setPackageData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = event.target;
+    setPackageData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const handleAddTimeSlot = () => {
+    setPackageData((prev) => ({
+      ...prev,
+      timeSlots: [...prev.timeSlots, { from: "", to: "" }],
+    }));
+  };
+
+  const handleTimeSlotChange = (index, e) => {
+    const { name, value } = e.target;
+    const updatedTimeSlots = [...packageData.timeSlots];
+    updatedTimeSlots[index][name] = value;
+    setPackageData((prev) => ({ ...prev, timeSlots: updatedTimeSlots }));
+  };
+
+  const handleRemoveTimeSlot = (index) => {
+    setPackageData((prev) => ({
+      ...prev,
+      timeSlots: prev.timeSlots.filter((_, i) => i !== index),
+    }));
+  };
+
+  const handleAddPerk = () => {
+    setPackageData((prev) => ({
+      ...prev,
+      perks: [...prev.perks, { icon: "", text: "" }],
+    }));
+  };
+
+  const handlePerkChange = (index, e) => {
+    const { name, value } = e.target;
+    console.log({ name, value });
+    const updatedPerks = [...packageData.perks];
+    updatedPerks[index][name] = value;
+    setPackageData((prev) => ({ ...prev, perks: updatedPerks }));
+  };
+
+  const handleRemovePerk = (index) => {
+    setPackageData((prev) => ({
+      ...prev,
+      perks: prev.perks.filter((_, i) => i !== index),
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors({}); // Clear previous errors
+
+    // Prepare a FormData object only with the changed fields
     const formData = new FormData();
-    formData.append("description", editorHtml);
-    formData.append("categoryId", packageData.categoryId);
-    formData.append("packageName", packageData.packageName);
-    formData.append("price", packageData.price);
-    formData.append("specialPrice", packageData.specialPrice);
-    formData.append("packageUSP", packageData.packageUSP);
-    formData.append("enabled", packageData.enabled);
+
+    if (packageData.categoryId !== initialPackageData.categoryId) {
+      formData.append("categoryId", packageData.categoryId);
+    }
+    if (packageData.packageName !== initialPackageData.packageName) {
+      formData.append("packageName", packageData.packageName);
+    }
+    if (packageData.price !== initialPackageData.price) {
+      formData.append("price", packageData.price);
+    }
+    if (packageData.specialPrice !== initialPackageData.specialPrice) {
+      formData.append("specialPrice", packageData.specialPrice);
+    }
+    if (packageData.packageUSP !== initialPackageData.packageUSP) {
+      formData.append("packageUSP", packageData.packageUSP);
+    }
+    if (editorHtml !== initialPackageData.description) {
+      formData.append("description", editorHtml);
+    }
+    if (packageData.enabled !== initialPackageData.enabled) {
+      formData.append("enabled", packageData.enabled);
+    }
+    if (
+      JSON.stringify(packageData.timeSlots) !==
+      JSON.stringify(initialPackageData.timeSlots)
+    ) {
+      formData.append("timeSlots", JSON.stringify(packageData.timeSlots));
+    }
+    if (
+      JSON.stringify(packageData.perks) !==
+      JSON.stringify(initialPackageData.perks)
+    ) {
+      formData.append("perks", JSON.stringify(packageData.perks));
+    }
+
+    // Only include new images
     packageData.images.forEach((image) => {
-      if (typeof image === "object") {
+      if (image instanceof File) {
         formData.append("images", image);
       }
     });
@@ -145,7 +252,7 @@ export default function EditPackage() {
     }
 
     try {
-      const response = await axios.put(`${API}/packages/${id}`, formData, {
+      const response = await axios.patch(`${API}/packages/${id}`, formData, {
         headers: {
           Authorization: token,
           "Content-Type": "multipart/form-data",
@@ -155,7 +262,11 @@ export default function EditPackage() {
         navigate(`/viewpackagedetails/${id}`);
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error updating package:", error);
+      setErrors((prev) => ({
+        ...prev,
+        submit: "An error occurred while updating the package.",
+      }));
     }
   };
 
@@ -178,33 +289,32 @@ export default function EditPackage() {
                     onSubmit={handleSubmit}
                     encType="multipart/form-data"
                   >
+                    {/* Category Selection */}
                     <div className="form-group" style={{ padding: "20px" }}>
-                      <label htmlFor="categoryName">Select Category* :</label>
+                      <label htmlFor="categoryId">Select Category* :</label>
                       <select
-                        type="text"
                         className="form-control input-lg"
-                        id="categoryName"
+                        id="categoryId"
                         name="categoryId"
-                        value={packageData.categoryId._id}
+                        value={packageData.categoryId}
                         onChange={handleChange}
                         required
                       >
-                        <option value={null} key={1} disabled>
+                        <option value="" disabled>
                           Please select
                         </option>
                         {categories.map((category) => (
-                          <option
-                            value={category._id}
-                            key={category._id}
-                            selected={
-                              category._id === packageData.categoryId._id
-                            }
-                          >
+                          <option key={category._id} value={category._id}>
                             {category.categoryName}
                           </option>
                         ))}
                       </select>
+                      {errors.categoryId && (
+                        <p className="text-danger">{errors.categoryId}</p>
+                      )}
                     </div>
+
+                    {/* Package Name */}
                     <div className="form-group" style={{ padding: "20px" }}>
                       <label htmlFor="packageName">Package Name* :</label>
                       <input
@@ -216,36 +326,44 @@ export default function EditPackage() {
                         onChange={handleChange}
                         required
                       />
+                      {errors.packageName && (
+                        <p className="text-danger">{errors.packageName}</p>
+                      )}
                     </div>
 
+                    {/* Image Upload */}
                     <div className="form-group" style={{ padding: "20px" }}>
                       <label htmlFor="images">Image Upload(s) :</label>
                       <input
                         type="file"
-                        className="form-control input-lg"
                         id="images"
                         name="images"
+                        accept=".jpg, .jpeg, .webp"
                         onChange={handleImageChange}
                         multiple
-                        accept="image/*"
                       />
-                      {packageData.images && (
+                      {errors.images && (
+                        <p className="text-danger">{errors.images}</p>
+                      )}
+                      {packageData.images.length > 0 && (
                         <div>
                           {packageData.images.map((image, index) => (
-                            <div key={index}>
+                            <div
+                              key={index}
+                              style={{
+                                display: "inline-block",
+                                marginRight: "10px",
+                              }}
+                            >
                               <img
                                 src={
-                                  typeof image === "object"
+                                  image instanceof File
                                     ? URL.createObjectURL(image)
                                     : `https://tripmenia.com/public/upload/${image}`
                                 }
                                 alt={`Package ${index}`}
                                 className="img-fluid"
-                                style={{
-                                  width: "100px",
-                                  height: "100px",
-                                  marginRight: "10px",
-                                }}
+                                style={{ width: "100px", height: "100px" }}
                               />
                               <button
                                 type="button"
@@ -259,6 +377,7 @@ export default function EditPackage() {
                       )}
                     </div>
 
+                    {/* Price */}
                     <div className="form-group" style={{ padding: "20px" }}>
                       <label htmlFor="price">Price* :</label>
                       <input
@@ -270,7 +389,12 @@ export default function EditPackage() {
                         onChange={handleChange}
                         required
                       />
+                      {errors.price && (
+                        <p className="text-danger">{errors.price}</p>
+                      )}
                     </div>
+
+                    {/* Special Price */}
                     <div className="form-group" style={{ padding: "20px" }}>
                       <label htmlFor="specialPrice">Special Price* :</label>
                       <input
@@ -282,7 +406,12 @@ export default function EditPackage() {
                         onChange={handleChange}
                         required
                       />
+                      {errors.specialPrice && (
+                        <p className="text-danger">{errors.specialPrice}</p>
+                      )}
                     </div>
+
+                    {/* Package USP */}
                     <div className="form-group" style={{ padding: "20px" }}>
                       <label htmlFor="packageUSP">Package USP* :</label>
                       <input
@@ -294,15 +423,24 @@ export default function EditPackage() {
                         onChange={handleChange}
                         required
                       />
+                      {errors.packageUSP && (
+                        <p className="text-danger">{errors.packageUSP}</p>
+                      )}
                     </div>
 
+                    {/* Description */}
                     <div className="form-group" style={{ padding: "20px" }}>
                       <label htmlFor="description">Description* :</label>
                       <MyHTMLEditor
                         editorHtml={editorHtml}
                         setEditorHtml={setEditorHtml}
                       />
+                      {errors.description && (
+                        <p className="text-danger">{errors.description}</p>
+                      )}
                     </div>
+
+                    {/* Enabled/Disabled */}
                     <div className="form-group" style={{ padding: "20px" }}>
                       <label htmlFor="enabled">Package Status* :</label>
                       <select
@@ -314,7 +452,91 @@ export default function EditPackage() {
                         <option value={true}>Enable</option>
                         <option value={false}>Disable</option>
                       </select>
+                      {errors.enabled && (
+                        <p className="text-danger">{errors.enabled}</p>
+                      )}
                     </div>
+
+                    {/* Time Slots */}
+                    <div className="form-group" style={{ padding: "20px" }}>
+                      <label>Time Slots :</label>
+                      {packageData.timeSlots.map((slot, index) => (
+                        <div key={index} style={{ marginBottom: "10px" }}>
+                          <input
+                            type="time"
+                            name="from"
+                            value={slot.from}
+                            onChange={(e) => handleTimeSlotChange(index, e)}
+                            style={{ marginRight: "10px" }}
+                            required
+                          />
+                          <input
+                            type="time"
+                            name="to"
+                            value={slot.to}
+                            onChange={(e) => handleTimeSlotChange(index, e)}
+                            style={{ marginRight: "10px" }}
+                            required
+                          />
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveTimeSlot(index)}
+                            style={{ marginLeft: "10px" }}
+                          >
+                            Remove Time Slot
+                          </button>
+                        </div>
+                      ))}
+                      <button type="button" onClick={handleAddTimeSlot}>
+                        Add Time Slot
+                      </button>
+                    </div>
+
+                    {/* Perks */}
+                    <div className="form-group" style={{ padding: "20px" }}>
+                      <label>Perks :</label>
+                      {packageData.perks.length > 0 ? (
+                        <ul>
+                          {packageData.perks.map((perk, index) => (
+                            <li key={index} style={{ marginBottom: "10px" }}>
+                              <input
+                                type="text"
+                                name="icon"
+                                value={perk.icon}
+                                onChange={(e) => handlePerkChange(index, e)}
+                                placeholder="Icon class"
+                                style={{ marginRight: "10px" }}
+                                required
+                              />
+                              <input
+                                type="text"
+                                name="text"
+                                value={perk.text}
+                                onChange={(e) => handlePerkChange(index, e)}
+                                placeholder="Perk text"
+                                required
+                              />
+                              <button
+                                type="button"
+                                onClick={() => handleRemovePerk(index)}
+                                style={{ marginLeft: "10px" }}
+                              >
+                                Remove Perk
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p>No perks added.</p>
+                      )}
+                      <button type="button" onClick={handleAddPerk}>
+                        Add Perk
+                      </button>
+                    </div>
+
+                    {errors.submit && (
+                      <p className="text-danger">{errors.submit}</p>
+                    )}
 
                     <button
                       className="btn btn-primary btn-block"

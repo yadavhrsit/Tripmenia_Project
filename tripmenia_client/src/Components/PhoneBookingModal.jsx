@@ -71,10 +71,10 @@ function PhoneBookingModal({
               <div className="flex items-center justify-between gap-3">
                 <p className="text-xl text-gray-dark xl:text-[14px]">
                   <span className="line-through">AED {packageData.price}</span>
-                  <span className="ml-2 font-bold xl:text-[20px]">
+                  <span className="ml-2 font-bold text-[15px]">
                     AED {packageData.specialPrice}
                   </span>
-                  <span className="ml-2 bg-green-500 text-white p-1 rounded font-bold xl:text-[15px]">
+                  <span className="ml-2 bg-green-500 text-white p-1 rounded font-bold text-[15px]">
                     Save{" "}
                     {parseInt(
                       ((packageData.price - packageData.specialPrice) /
@@ -219,7 +219,9 @@ function PhoneBookingModal({
                   guests > 0 && date !== null
                     ? "cursor-pointer bg-zinc-800 text-white hover:bg-black"
                     : "cursor-not-allowed bg-gray-100 border-gray-200 text-gray-400"
-                }  mt-4 w-full !py-[14px] text-base !font-bold uppercase tracking-widest`}
+                }  mt-4 w-full !py-[14px] text-base !font-bold uppercase tracking-widest ${
+                  guestsCounter ? "mt-28" : ""
+                }`}
                 onClick={() => {
                   setOpenBookingForm(!openBookingForm);
                   setModalOpen(false);
@@ -247,8 +249,8 @@ function PhoneBookingModal({
                   className="flex justify-center items-center gap-2"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={`httpss://wa.me/971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
-                  >
+                  href={`https://wa.me/+971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
+                >
                   <IoLogoWhatsapp size={20} />
                   Book on WhatsApp
                 </a>

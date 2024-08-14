@@ -8,7 +8,7 @@
  *
  * ARIA Support: Greta Krafsig
  *
- * Project: httpss://github.com/CodeSeven/toastr
+ * Project: https://github.com/CodeSeven/toastr
  */
 /* global define */
 (function (define) {

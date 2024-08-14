@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 function PhoneBottomBar({ isOpen, setIsOpen }) {
   
   return (
-    <div className="fixed inset-x-0 bottom-0 z-30 grid h-16 w-full grid-cols-3 items-center justify-between gap-2 bg-white shadow-menu-shadow md:hidden">
+    <div className="fixed bg-slate-200 inset-x-0 bottom-0 z-30 grid h-16 w-full grid-cols-3 items-center justify-between gap-2  shadow-menu-shadow md:hidden">
       <div className="flex items-center justify-center">
         <NavLink className="inline-block hover:text-red" to={"/"}>
           <svg

@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { IoIosCloseCircle } from "react-icons/io";
+import { useParams,useNavigate } from "react-router-dom";
 
 const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
   const [categories, setCategories] = useState([]);
   const containerRef = useRef(null);
+  const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,10 +25,20 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
     fetchData();
   }, []);
 
-  const handleCategoryClick = (categoryId, index) => {
-    setSelectedCategory((prevCategory) =>
-      prevCategory === categoryId ? null : categoryId
-    );
+  const handleCategoryClick = (categoryId, index,categoryName) => {
+    setSelectedCategory((prevCategory) => {
+      const newCategory = prevCategory === categoryId ? null : categoryId;
+      if (newCategory) {
+        navigate(`/${categoryName}`);
+      } else {
+        params.category = "";
+        navigate('/');
+      }
+      
+
+      return newCategory;
+    });
+
     const container = containerRef.current;
     const item = container.children[index];
     if (item) {
@@ -57,7 +70,10 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
           ref={containerRef}
         >
           {categories.map((category, index) => (
-            <div className="min-w-[150px] shadow text-center mx-2 flex-shrink-0" key={index}>
+            <div
+              className="min-w-[150px] shadow text-center mx-2 flex-shrink-0"
+              key={index}
+            >
               <button
                 type="button"
                 className={`px-2 w-full text-nowrap text-center py-2 mx-auto rounded-md font-semibold hover:bg-white ${
@@ -65,7 +81,7 @@ const CategoryCarousel = ({ selectedCategory, setSelectedCategory }) => {
                     ? "bg-[#89519f] text-white hover:text-black relative"
                     : "bg-gray-100 text-black"
                 } text-xs md:text-sm xl:text-base`}
-                onClick={() => handleCategoryClick(category._id, index)}
+                onClick={() => handleCategoryClick(category._id, index,category.categoryName)}
               >
                 {category.categoryName}
                 {selectedCategory === category._id && (

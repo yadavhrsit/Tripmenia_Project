@@ -13,16 +13,13 @@ export default function Card({
   packageId,
 }) {
   return (
-    <div
-      to={`/package/${packageId}`}
-      className="h-fit rounded overflow-hidden px-2 py-1 hover:shadow-md bg-white cursor-pointer hover:bg-gray-100 transition duration-300 ease-in-out"
-    >
-      <Link to={`/package/${packageId}`}>
+    <div className="h-fit rounded overflow-hidden px-2 py-1 hover:shadow-md bg-white cursor-pointer hover:bg-gray-100 transition duration-300 ease-in-out">
+      <Link to={`/${categoryName}/${packageId}`}>
         <img
           className="w-full rounded-xl object-cover"
           height={300}
           src={image}
-          alt=" Alt Text"
+          alt={packageName}
         />
         <div className=" py-2">
           <div className="text-left text-xs mb-1 text-gray-600">

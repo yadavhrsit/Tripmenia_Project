@@ -16,9 +16,9 @@ function Banner() {
       }
     }
     fetchData();
-  }, [])
+  }, []);
   return (
-    <div className="relative h-[45vh] md:h-[85vh]">
+    <div className="relative md:h-[85vh] md:pt-0 pt-8">
       <img
         alt="Home banner for web"
         fetchPriority="high"
@@ -46,10 +46,9 @@ function Banner() {
         fetchPriority="high"
         decoding="async"
         data-img="fill"
-        className="sm:hidden aspect-[2/1] h-full bg-gray-lighter object-fill"
+        className="sm:hidden bg-gray-lighter object-fit"
         style={{
-          position: "absolute",
-          height: "100%",
+         
           width: "100%",
           left: "0",
           top: "40px",

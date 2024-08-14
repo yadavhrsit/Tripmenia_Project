@@ -48,7 +48,7 @@ const Footer = () => {
                   className="px-4 first:pl-0 last:pr-0 lg:px-6"
                   style={{ listStyle: "none !important" }}
                 >
-                  <a target="blank" href="httpss://www.tripadvisor.com/">
+                  <a target="blank" href="https://www.tripadvisor.com/">
                     <img
                       alt="google"
                       loading="lazy"
@@ -109,7 +109,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     rel="noReferrer"
-                    href="httpss://www.instagram.com/"
+                    href="https://www.instagram.com/"
                   >
                     <svg
                       xmlns="https://www.w3.org/2000/svg"

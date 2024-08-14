@@ -38,10 +38,7 @@ const HomeBottomBanner = () => {
           }}
           sizes="100vw"
           
-          src={`https://tripmenia.com/${
-            banners.find((banner) => banner.name === "footerBanner")
-              ?.imagePath || image
-          }`}
+          src="https://tripmenia.com/public/upload/footerBanner.jpg"
         />
         <div className="relative bg-white shadow-card md:bg-transparent md:shadow-none max-w-[500px] md:max-w-[380px] rounded-lg m-auto md:!ml-auto md:!mr-0 lg:max-w-[440px] xl:max-w-[500px] px-4 pb-4 pt-8 md:px-0 md:pb-0 md:pt-0">
           <h2 className="text-center text-2xl font-bold text-black md:text-white md:text-left md:text-3xl xl:mb-6 2xl:text-5xl !text-primary md:!text-white text-2xl 2xl:text-[44px] 2xl:leading-[64px] mb-2 xl:mb-5">

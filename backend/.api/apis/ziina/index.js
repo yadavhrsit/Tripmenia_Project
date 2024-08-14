@@ -37,8 +37,8 @@ var SDK = /** @class */ (function () {
      * @example <caption>API Keys</caption>
      * sdk.auth('myApiKey');
      *
-     * @see {@link httpss://spec.openapis.org/oas/v3.0.3#fixed-fields-22}
-     * @see {@link httpss://spec.openapis.org/oas/v3.1.0#fixed-fields-22}
+     * @see {@link https://spec.openapis.org/oas/v3.0.3#fixed-fields-22}
+     * @see {@link https://spec.openapis.org/oas/v3.1.0#fixed-fields-22}
      * @param values Your auth credentials for the API; can specify up to two strings or numbers.
      */
     SDK.prototype.auth = function () {
@@ -58,13 +58,13 @@ var SDK = /** @class */ (function () {
      * within the OpenAPI definition).
      *
      * @example <caption>Server URL with server variables</caption>
-     * sdk.server('httpss://{region}.api.example.com/{basePath}', {
+     * sdk.server('https://{region}.api.example.com/{basePath}', {
      *   name: 'eu',
      *   basePath: 'v14',
      * });
      *
      * @example <caption>Fully qualified server URL</caption>
-     * sdk.server('httpss://eu.api.example.com/v14');
+     * sdk.server('https://eu.api.example.com/v14');
      *
      * @param url Server URL
      * @param variables An object of variables to replace into the server URL.

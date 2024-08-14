@@ -44,7 +44,7 @@ export default function ViewPackage() {
           <div className="container-fluid">
             <div className="panel panel-headline">
               <div className="panel-heading">
-                <h3 className="panel-title">View Category</h3>
+                <h3 className="panel-title">View Packages</h3>
                 <p className="panel-subtitle">(List All Packages)</p>
               </div>
               <div className="row">

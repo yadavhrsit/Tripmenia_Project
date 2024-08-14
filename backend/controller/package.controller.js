@@ -16,8 +16,10 @@ const AddPackage = async (req, res) => {
       packageUSP,
       description,
       enabled,
-      timeSlots,
     } = req.body;
+
+    const timeSlots = JSON.parse(req.body.timeSlots);
+    const perks = JSON.parse(req.body.perks);
 
     const images = req.files.map((file) => file.filename); // Get the paths of the uploaded images
 
@@ -31,6 +33,7 @@ const AddPackage = async (req, res) => {
       description,
       enabled,
       timeSlots,
+      perks,
     });
 
     await package.save();
@@ -150,42 +153,37 @@ const getFilteredPackages = async (req, res) => {
 
 const UpdatePackage = async (req, res) => {
   try {
-    const {
-      categoryId,
-      packageName,
-      price,
-      specialPrice,
-      packageUSP,
-      description,
-      enabled,
-      timeSlots,
-    } = req.body;
-    
-    const images = req.files.map((file) => file.filename);
+    const update = {};
 
-    const update = {
-      images,
-      categoryId,
-      packageName,
-      price,
-      specialPrice,
-      packageUSP,
-      description,
-      enabled,
-      timeSlots,
-    };
+    if (req.body.categoryId) update.categoryId = req.body.categoryId;
+    if (req.body.packageName) update.packageName = req.body.packageName;
+    if (req.body.price) update.price = req.body.price;
+    if (req.body.specialPrice) update.specialPrice = req.body.specialPrice;
+    if (req.body.packageUSP) update.packageUSP = req.body.packageUSP;
+    if (req.body.description) update.description = req.body.description;
+    if (typeof req.body.enabled !== "undefined")
+      update.enabled = req.body.enabled;
+
+    if (req.body.timeSlots) update.timeSlots = JSON.parse(req.body.timeSlots);
+    if (req.body.perks) update.perks = JSON.parse(req.body.perks);
+
+    if (req.files && req.files.length > 0) {
+      update.images = req.files.map((file) => file.filename);
+    }
 
     const updatedPackage = await packageModel.findByIdAndUpdate(
       req.params.id,
       update,
       { new: true }
     );
+
     res.json(updatedPackage);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
 
 const DeletePackage = async (req, res) => {
   try {

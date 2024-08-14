@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -29,7 +29,7 @@ function CategorySlider({ categoryId, categoryTitle, categoryDescription,selecte
   }, [categoryId, categoryTitle, categoryDescription]);
 
   return (
-    <div className="px-4 lg:px-6 xl:px-8 2xl:px-10 my-12  shadow">
+    <div className="px-4 lg:px-6 xl:px-8 2xl:px-10 my-6 lg:my-12 shadow">
       <div className="flex gap-2 justify-between items-center">
         <div>
           <h2 className="text-2xl font-bold text-zinc-800 mb-2">
@@ -51,9 +51,12 @@ function CategorySlider({ categoryId, categoryTitle, categoryDescription,selecte
         <Swiper
           slidesPerView={1}
           spaceBetween={1}
+          loop={true}
+          speed={1000}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
+            
           }}
           breakpoints={{
             640: {
