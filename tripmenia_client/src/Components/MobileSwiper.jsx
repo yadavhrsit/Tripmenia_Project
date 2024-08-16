@@ -46,38 +46,7 @@ const MobileSwiper = ({ packageData }) => {
             </div>
           </SwiperSlide>
         ))}
-        <SwiperSlide>
-          <div className="relative h-[260px] sm:h-[320px]">
-            <img
-              alt="placeholder"
-              className="object-cover"
-              style={{
-                position: "absolute",
-                height: "100%",
-                width: "100%",
-                inset: 0,
-                color: "transparent",
-              }}
-              src={`https://placehold.jp/600x300.png`}
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative h-[260px] sm:h-[320px]">
-            <img
-              alt="placeholder"
-              className="object-cover"
-              style={{
-                position: "absolute",
-                height: "100%",
-                width: "100%",
-                inset: 0,
-                color: "transparent",
-              }}
-              src={`https://placehold.jp/600x300.png`}
-            />
-          </div>
-        </SwiperSlide>
+        
       </Swiper>
     </div>
   );
