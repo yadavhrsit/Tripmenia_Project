@@ -13,7 +13,7 @@ function Home() {
   const [pkg, setPackage] = useState([]);
 
   const params = useParams();
-  console.log(params.category);
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -25,15 +25,15 @@ function Home() {
           const data = await response.json();
           setCategories(data);
           if (params?.category) {
-            console.log(params?.category);
+            
             // Decode the URL-encoded package name
             const decodedCategoryName = decodeURIComponent(params.category);
-            console.log(decodedCategoryName);
+            
             // Find the category in the data array
             const caughtCategory = data.find(
               (p) => p.categoryName === decodedCategoryName
             );
-            console.log(caughtCategory);
+            
             // Set the selected category if the package was found
             if (caughtCategory) {
               setSelectedCategory(caughtCategory._id);

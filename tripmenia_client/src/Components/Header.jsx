@@ -18,7 +18,7 @@ function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
-    console.log(location.pathname);
+   
 
   const changeBackground = () => {
     if (window.scrollY >= 80) {
@@ -34,7 +34,8 @@ function Header() {
       const response = await axios.get(
         `https://tripmenia.com/api/packages/view?search=${e.target.value}`
       );
-      setResults(response.data);
+      setResults(response.data.packages);
+      
     } else {
       setResults([]);
     }
