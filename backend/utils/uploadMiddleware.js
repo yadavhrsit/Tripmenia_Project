@@ -26,7 +26,7 @@ const validateFiles = (files) => {
     "image/svg",
     "image/webp",
   ];
-  const maxSize = 0.5 * 1024 * 1024; // 0.5MB
+  const maxSize = 2 * 1024 * 1024; // 2MB
 
   files.forEach((file) => {
     if (!allowedTypes.includes(file.mimetype)) {

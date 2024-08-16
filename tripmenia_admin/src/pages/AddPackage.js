@@ -100,8 +100,8 @@ export default function AddPackage() {
     const imagesErrors = [];
 
     const validImages = files.filter((file) => {
-      if (file.size > 500000) {
-        imagesErrors.push(" Size is too large");
+      if (file.size > 2097152) {
+        imagesErrors.push("Size is too large");
         return false;
       }
       if (

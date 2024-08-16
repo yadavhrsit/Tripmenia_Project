@@ -121,7 +121,7 @@ export default function EditPackage() {
     const imagesErrors = [];
 
     files.forEach((file) => {
-      if (file.size > 500000) {
+      if (file.size > 2097152) {
         imagesErrors.push("Size is too large");
         return;
       }

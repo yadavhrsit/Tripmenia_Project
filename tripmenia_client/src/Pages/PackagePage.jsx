@@ -253,7 +253,7 @@ function PackagePage() {
                       alt="questions"
                       loading="lazy"
                       decoding="async"
-                      data-nimg="fill"
+                      data-img="fill"
                       className="h-full w-full object-contain"
                       style={{
                         position: "absolute",
