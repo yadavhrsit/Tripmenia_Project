@@ -168,7 +168,7 @@ function PackagePage() {
                           >
                             <i className={`${perk.icon} ${text}`} />
                           </p>
-                          <p className="md:text-xl capitalize">{perk.text}</p>
+                          <p className="md:text-xl capitalize w-fit text-center">{perk.text}</p>
                         </li>
                       );
                     })}
