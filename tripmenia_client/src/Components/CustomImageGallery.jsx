@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
 const CustomModalWithSlider = ({ images }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -85,7 +86,7 @@ const CustomModalWithSlider = ({ images }) => {
       {/* Modal */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
-          <div className="relative w-full max-w-5xl py-12 px-16 bg-black bg-opacity-40 rounded-lg shadow-lg">
+          <div className="relative w-full max-w-[100%] h-[100vh] py-12 px-16 bg-black bg-opacity-40 rounded-lg shadow-lg">
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 text-white bg-black rounded-full w-8 h-8 hover:bg-opacity-80 transition"
@@ -94,17 +95,17 @@ const CustomModalWithSlider = ({ images }) => {
             </button>
 
             {/* Slick Slider */}
-            <div className="w-full h-[80vh]">
+            <div className="">
               <Slider {...sliderSettings}>
                 {images.map((image, index) => (
                   <div
                     key={index}
-                    className="flex justify-center items-center h-full"
+                    className="flex justify-center items-center"
                   >
                     <img
                       src={`https://tripmenia.com/public/upload/${image}`}
                       alt={`pic ${index + 1}`}
-                      className="object-contain w-full h-full"
+                      className="w-[50%] mx-auto"
                     />
                   </div>
                 ))}

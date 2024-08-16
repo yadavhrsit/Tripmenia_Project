@@ -132,6 +132,8 @@ function PackagePage() {
                 packageData.images[0],
                 packageData.images[1],
                 packageData.images[2],
+                packageData.images[3],
+                packageData.images[4],
               ]}
             />
             <MobileSwiper packageData={packageData} />

@@ -197,10 +197,11 @@ function HomeExperienceSection() {
             <div className="group/item card-gradient flex flex-col justify-start rounded-xl border-2 p-6 transition-all duration-500 lg:p-7 2xl:p-12">
               <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
                 <svg
-                  viewBox="0 0 24 24"
                   fill="#982B1C"
+                  viewBox="0 0 128 128"
+                  id="Layer_1"
+                  version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
-                  style={{ fill: "#982B1C" }}
                 >
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
@@ -210,13 +211,12 @@ function HomeExperienceSection() {
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     {" "}
-                    <path
-                      d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
-                      stroke="#982B1C"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    ></path>{" "}
+                    <g>
+                      {" "}
+                      <path d="M109,55c0-29.8-24.2-54-54-54C25.2,1,1,25.2,1,55s24.2,54,54,54c13.5,0,25.8-5,35.2-13.1l25.4,25.4l5.7-5.7L95.9,90.2 C104,80.8,109,68.5,109,55z M55,101C29.6,101,9,80.4,9,55S29.6,9,55,9s46,20.6,46,46S80.4,101,55,101z"></path>{" "}
+                      <path d="M25.6,30.9l6.2,5.1C37.5,29,46,25,55,25v-8C43.6,17,32.9,22.1,25.6,30.9z"></path>{" "}
+                      <path d="M17,55h8c0-2.1,0.2-4.1,0.6-6.1l-7.8-1.6C17.3,49.8,17,52.4,17,55z"></path>{" "}
+                    </g>{" "}
                   </g>
                 </svg>
               </div>
@@ -237,7 +237,7 @@ function HomeExperienceSection() {
                   xmlns="http://www.w3.org/2000/svg"
                   strokeWidth="3"
                   stroke="#000000"
-                  fill="none"
+                  fill="#FFB22C"
                 >
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
@@ -265,7 +265,7 @@ function HomeExperienceSection() {
               <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
                 <svg
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill="#36C2CE"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -310,10 +310,8 @@ function HomeExperienceSection() {
             <div className="group/item card-gradient flex flex-col justify-start rounded-xl border-2 p-6 transition-all duration-500 lg:p-7 2xl:p-12">
               <div className="relative inline-flex aspect-auto h-16 w-10 object-contain transition-all duration-500 group-hover/item:-translate-y-1 xl:h-[84px] xl:w-16 2xl:h-[110px] 2xl:w-[70px]">
                 <svg
-                  fill="#3498db"
-                  viewBox="0 0 128 128"
-                  id="Layer_1"
-                  version="1.1"
+                  viewBox="0 0 24 24"
+                  fill="#36C2CE"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -323,11 +321,25 @@ function HomeExperienceSection() {
                     strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
-                    <g>
-                      <path d="M109,55c0-29.8-24.2-54-54-54C25.2,1,1,25.2,1,55s24.2,54,54,54c13.5,0,25.8-5,35.2-13.1l25.4,25.4l5.7-5.7L95.9,90.2 C104,80.8,109,68.5,109,55z M55,101C29.6,101,9,80.4,9,55S29.6,9,55,9s46,20.6,46,46S80.4,101,55,101z"></path>
-                      <path d="M25.6,30.9l6.2,5.1C37.5,29,46,25,55,25v-8C43.6,17,32.9,22.1,25.6,30.9z"></path>
-                      <path d="M17,55h8c0-2.1,0.2-4.1,0.6-6.1l-7.8-1.6C17.3,49.8,17,52.4,17,55z"></path>
-                    </g>
+                    {" "}
+                    <path
+                      d="M10.6456 18.6327L11.3278 16.1316C11.4069 15.8415 11.4464 15.6965 11.3714 15.5983C11.2963 15.5 11.146 15.5 10.8454 15.5H8.90212C8.50324 15.5 8.30379 15.5 8.2324 15.3712C8.16101 15.2424 8.26671 15.0733 8.47812 14.735L10.0219 12.265C10.2333 11.9267 10.339 11.7576 10.2676 11.6288C10.1962 11.5 9.99676 11.5 9.59788 11.5H7.19371C6.87716 11.5 6.71888 11.5 6.64405 11.3962C6.56921 11.2924 6.61927 11.1422 6.71937 10.8419L9.38604 2.84189C9.44104 2.67688 9.46854 2.59438 9.53401 2.54719C9.59948 2.5 9.68645 2.5 9.86038 2.5H15.6169C16.0084 2.5 16.2042 2.5 16.276 2.62683C16.3478 2.75365 16.2471 2.92152 16.0457 3.25725L13.9543 6.74275C13.7529 7.07848 13.6522 7.24635 13.724 7.37317C13.7958 7.5 13.9916 7.5 14.3831 7.5H15.5C15.9363 7.5 16.1545 7.5 16.2236 7.6382C16.2927 7.77639 16.1618 7.95093 15.9 8.3L14.1 10.7C13.8382 11.0491 13.7073 11.2236 13.7764 11.3618C13.8455 11.5 14.0637 11.5 14.5 11.5H16.4682C16.9166 11.5 17.1408 11.5 17.2091 11.641C17.2774 11.782 17.1385 11.9579 16.8607 12.3098L11.5204 19.0741C10.9293 19.8229 10.6337 20.1973 10.4514 20.1053C10.2691 20.0134 10.3946 19.5531 10.6456 18.6327Z"
+                      stroke="#222222"
+                    ></path>{" "}
+                    <path
+                      d="M19.5 4L18 6H20L18.5 8"
+                      stroke="#2A4157"
+                      strokeOpacity="0.24"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></path>{" "}
+                    <path
+                      d="M6.5 16L5 18H7L5.5 20"
+                      stroke="#2A4157"
+                      strokeOpacity="0.24"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></path>{" "}
                   </g>
                 </svg>
               </div>
