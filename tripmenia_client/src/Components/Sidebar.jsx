@@ -81,7 +81,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
             </li>
             <li>
               <a
-                href={`https://wa.me/+971567290409?text=Hello%2C%20I'm%20interested%20in%20personalized%20vacation%20planning.`}
+                href={`https://wa.me/+971525447735?text=Hello%2C%20I'm%20interested%20in%20personalized%20vacation%20planning.`}
                 className="flex items-center gap-3 px-10 py-4 text-base capitalize text-gray-700 hover:bg-gray-200"
               >
                 <FaWhatsapp />
