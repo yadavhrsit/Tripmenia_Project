@@ -243,12 +243,12 @@ function PackagePage() {
                       Message us for personalized itineraries, and vacation
                       planning straight to you.
                     </p>
-                    <button
-                      type="button"
-                      className="inline-flex font-medium items-center justify-center focus:outline-none transition duration-200 active:scale-90 px-8 py-2.5 text-base rounded-md bg-transparent border border-gray-300 hover:enabled:border-gray-1000 focus:enabled:border-gray-1000 focus:ring-gray-900/30 !border-gray-dark !px-4 !py-[8px] !font-bold text-gray-dark hover:bg-gray-dark hover:text-white hover:bg-black md:w-auto md:border-gray lg:!px-[28px] lg:!py-[14px]"
+                    <a
+                      href={`https://wa.me/+971525447735?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20I%20have%20queries%20about%20this%20package.%20Here%20is%20the%20link%3A%20${link}`}
+                      className="inline-flex items-center justify-center focus:outline-none transition duration-200 active:scale-90 text-base rounded-md bg-transparent border border-gray-300 hover:enabled:border-gray-1000 focus:enabled:border-gray-1000 focus:ring-gray-900/30 !border-gray-dark !px-4 !py-[8px] !font-bold text-gray-dark hover:bg-gray-dark hover:text-white hover:bg-black md:w-auto md:border-gray lg:!px-[28px] lg:!py-[14px]"
                     >
                       Chat now
-                    </button>
+                    </a>
                   </div>
                   <div className="relative hidden h-40 w-64 md:block">
                     <img
