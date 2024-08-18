@@ -219,8 +219,8 @@ function PhoneBookingModal({
                   guests > 0 && date !== null
                     ? "cursor-pointer bg-zinc-800 text-white hover:bg-black"
                     : "cursor-not-allowed bg-gray-100 border-gray-200 text-gray-400"
-                }  mt-4 w-full !py-[14px] text-base !font-bold uppercase tracking-widest ${
-                  guestsCounter ? "mt-28" : ""
+                }   w-full !py-[14px] text-base !font-bold uppercase tracking-widest ${
+                  guestsCounter ? "mt-28" : "mt-4"
                 }`}
                 onClick={() => {
                   setOpenBookingForm(!openBookingForm);
