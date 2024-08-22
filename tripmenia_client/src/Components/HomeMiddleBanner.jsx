@@ -37,7 +37,9 @@ const HomeMiddleBanner = () => {
             color: "transparent",
           }}
           sizes="100vw"
-          src="https://tripmenia.com/public/upload/middleBanner.jpg"
+          src={`https://tripmenia.com/${
+            banners.find((banner) => banner.name === "middleBanner")?.imagePath
+          }`}
         />
         <div className="relative m-auto md:mr-0 max-w-[450px] xl:max-w-[513px] px-8 py-9 md:px-0 md:py-0 flex flex-col justify-center md:justify-start z-20">
           <h2 className="text-center text-2xl font-bold text-white md:text-left md:text-3xl xl:mb-6 2xl:text-5xl mb-3">
