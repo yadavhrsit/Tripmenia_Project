@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -100,6 +100,7 @@ function Success() {
             </div>
           </>
         ) : (
+          
           <p className="text-center text-gray-600">No booking data found.</p>
         )}
       </div>

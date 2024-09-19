@@ -6,20 +6,20 @@ const path = require("path");
 // Register the built-in fonts
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-/**
- * Generate a PDF receipt with given data.
- *
- * @param {Object} options - The data to include in the PDF.
- * @param {string} options.logoPath - The path to the logo image.
- * @param {string} options.invoiceNo - The invoice number.
- * @param {string} options.invoiceDate - The invoice date.
- * @param {string} options.billedBy - The billed by details.
- * @param {string} options.billedTo - The billed to details.
- * @param {Array<Object>} options.items - The items to include in the table.
- * @param {string} options.totalAmount - The total amount.
- * @param {string} options.contactInfo - The contact information.
- * @returns {Promise<string>} - The path to the generated PDF.
- */
+// /**
+//  * Generate a PDF receipt with given data.
+//  *
+//  * @param {Object} options - The data to include in the PDF.
+//  * @param {string} options.logoPath - The path to the logo image.
+//  * @param {string} options.invoiceNo - The invoice number.
+//  * @param {string} options.invoiceDate - The invoice date.
+//  * @param {string} options.billedBy - The billed by details.
+//  * @param {string} options.billedTo - The billed to details.
+//  * @param {Array<Object>} options.items - The items to include in the table.
+//  * @param {string} options.totalAmount - The total amount.
+//  * @param {string} options.contactInfo - The contact information.
+//  * @returns {Promise<string>} - The path to the generated PDF.
+//  */
 function generatePDFReceipt({
   logoPath,
   invoiceNo,
@@ -30,6 +30,8 @@ function generatePDFReceipt({
   totalAmount,
   contactInfo,
 }) {
+  console.log(invoiceNo);
+  console.log(invoiceDate);
   return new Promise((resolve, reject) => {
     // Convert the image to a Base64 string
     const imageBase64 = fs.readFileSync(logoPath).toString("base64");
@@ -70,7 +72,7 @@ function generatePDFReceipt({
         {
           style: "tableExample",
           table: {
-            widths: ["*", "*", "*"],
+            widths: [100, "*", "*"],
             body: [
               [
                 {

@@ -32,6 +32,7 @@ async function initiatePayment(req, res) {
     }
 
     const json = await response.json();
+
     await bookingModel.findByIdAndUpdate(
       bookingId,
       {
@@ -80,8 +81,6 @@ async function verifyPayment(req, res) {
     const json = await response.json();
     const paymentStatus = json.status;
 
-    console.log("Payment status:", paymentStatus);
-
     if (paymentStatus === "completed" && booking.paymentStatus === "pending") {
       const items = [
         {
@@ -93,26 +92,58 @@ async function verifyPayment(req, res) {
         },
       ];
 
+      // generate Invoice Number String
+      const invoiceNo = `TRIPMENIA-${Math.floor(
+        100000 + Math.random() * 900000
+      )}-${verifiedBooking.clientName
+        .slice(0, 3)
+        .toUpperCase()}${verifiedBooking.clientEmail
+        .slice(0, 3)
+        .toUpperCase()}${verifiedBooking.clientPhoneNo.slice(0, 3)}`;
+
+      const formattedDate = new Date(verifiedBooking.bookingDate)
+        .toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        })
+        .replace(" ", "-");
+
+      const verifiedBooking = await bookingModel.findByIdAndUpdate(
+        id,
+        { invoiceNo, paymentStatus },
+        { new: true }
+      );
+
       const pdfPath = await generatePDFReceipt({
         logoPath: "logo.png",
-        invoiceNo: booking._id,
-        invoiceDate: booking.bookingDate,
+        invoiceNo,
+        invoiceDate: formattedDate,
         billedBy:
           "Gulfania FZC\nB33-129, Sharjah Research Technology and Innovation Park, Sharjah, United Arab Emirates",
-        billedTo: `${booking.clientName}\nEmail: ${booking.clientEmail}\nPhone: ${booking.clientPhoneNo}`,
+        billedTo: `${verifiedBooking.clientName}\nEmail: ${verifiedBooking.clientEmail}\nPhone: ${verifiedBooking.clientPhoneNo}`,
         items,
-        totalAmount: `AED ${booking.amountPaid}`,
+        totalAmount: `AED ${verifiedBooking.amountPaid}`,
         contactInfo:
-          "For any enquiry, reach out via email at bookings@gulfania.com, call on +971 52 972 0709",
+          "For any enquiry, reach out via email at bookings@tripmenia.com, call on +971 52 544 7735",
       });
 
       // Set up email transport
+
       const transporter = nodemailer.createTransport({
-        service: "gmail",
+        host: "us2.smtp.mailhostbox.com", // or your smtp server: 'smtp.tripmenia.com'
+        port: 587, // use 25 or 587 for non-SSL
+        secure: false, // true for 465, false for other ports
         auth: {
           user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASS,
         },
+        tls: {
+          // do not fail on invalid certs
+          rejectUnauthorized: false,
+        },
+        connectionTimeout: 20000, // 20 seconds
+        greetingTimeout: 20000, // 20 seconds
       });
 
       // Email options
@@ -130,28 +161,30 @@ async function verifyPayment(req, res) {
       };
 
       // Send the email
-      await transporter.sendMail(mailOptions);
+      await transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.log("Error sending email:", error);
+        } else {
+          console.log("Email sent:", info.response);
+          console.log("Message sent: %s", info.messageId);
+        }
+      });
       console.log("Email sent successfully.");
 
-      const verifiedBooking = await bookingModel.findByIdAndUpdate(
-        id,
-        { paymentStatus },
-        { new: true }
-      );
-
-      console.log("Booking:", booking);
-      console.log("verifiedBooking:", verifiedBooking);
-
-      return res
-        .status(200)
-        .json({ message: "Payment verified", paymentStatus, verifiedBooking });
+      return res.status(200).json({
+        message: "Payment verified",
+        paymentStatus,
+        verifiedBooking,
+      });
     }
 
     // Update payment status if not completed
-    await bookingModel.findByIdAndUpdate(id, { paymentStatus }, { new: true });
-    return res
-      .status(200)
-      .json({ message: "Payment status updated", paymentStatus });
+    const alreadyVerified = await bookingModel.findById(id);
+    return res.status(200).json({
+      message: "Payment status updated",
+      paymentStatus,
+      verifiedBooking: alreadyVerified,
+    });
   } catch (error) {
     console.error("Error verifying payment:", error);
     res.status(500).json({ error: "Failed to verify payment" });
