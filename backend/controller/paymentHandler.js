@@ -95,13 +95,11 @@ async function verifyPayment(req, res) {
       // generate Invoice Number String
       const invoiceNo = `TRIPMENIA-${Math.floor(
         100000 + Math.random() * 900000
-      )}-${verifiedBooking.clientName
+      )}-${booking.clientName.slice(0, 3).toUpperCase()}${booking.clientEmail
         .slice(0, 3)
-        .toUpperCase()}${verifiedBooking.clientEmail
-        .slice(0, 3)
-        .toUpperCase()}${verifiedBooking.clientPhoneNo.slice(0, 3)}`;
+        .toUpperCase()}${booking.clientPhoneNo.slice(0, 3)}`;
 
-      const formattedDate = new Date(verifiedBooking.bookingDate)
+      const formattedDate = new Date(booking.bookingDate)
         .toLocaleDateString("en-GB", {
           day: "numeric",
           month: "long",
