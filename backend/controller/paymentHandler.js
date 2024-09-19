@@ -22,7 +22,7 @@ async function initiatePayment(req, res) {
         message: `Package ${req.body.destination}`,
         success_url: `https://www.tripmenia.com/success/${bookingId}`,
         cancel_url: "https://www.tripmenia.com/failure",
-        test: true,
+        // test: true,
       }),
     };
 
