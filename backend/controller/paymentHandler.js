@@ -118,7 +118,7 @@ async function verifyPayment(req, res) {
         invoiceNo,
         invoiceDate: formattedDate,
         billedBy:
-          "Tripmenia FZC\nB33-129, Sharjah Research Technology and Innovation Park, Sharjah, United Arab Emirates",
+          "Tripmenia (FZE)\nBlock C VL02-179, Sharjah Research Technology and Innovation Park, Sharjah, United Arab Emirates",
         billedTo: `${verifiedBooking.clientName}\nEmail: ${verifiedBooking.clientEmail}\nPhone: ${verifiedBooking.clientPhoneNo}`,
         items,
         totalAmount: `AED ${verifiedBooking.amountPaid}`,
