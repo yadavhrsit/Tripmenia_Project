@@ -8,5 +8,9 @@ const adminRoutes = express.Router();
 
 adminRoutes.post('/login',LoginUser);
 
+// DO NOT DEPLOY THE BELOW ROUTE 
+
+// adminRoutes.post("/register", RegisterUser); CAREFUL DON'T DEPLOY THIS 
+
 
 module.exports = adminRoutes;
