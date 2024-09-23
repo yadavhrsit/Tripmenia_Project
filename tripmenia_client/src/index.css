@@ -3,5 +3,15 @@
 @tailwind utilities;
 
 .slick-dots li{
-  width: 200px !important;
+  width: 140px !important;
+}
+.slick-prev:before {
+  font-size: 60px;
+}
+
+.slick-next:before {
+  font-size: 60px;
+}
+.slick-next{
+  right: 0 !important;
 }

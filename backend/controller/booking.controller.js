@@ -7,13 +7,16 @@ const createBooking = async (req) => {
       packageId: bookingPackageId,
       name: clientName,
       email: clientEmail,
-      phoneNumber: clientPhoneNo,
+      phone: clientPhoneNo,
       amount: amountPaid,
       guests: totalGuest,
       date: bookingDate,
       status,
       paymentStatus,
     } = req.body;
+
+    console.log(req.body);
+    
 
     const booking = new bookingModel({
       bookingPackageName,

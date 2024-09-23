@@ -85,7 +85,7 @@ const CustomModalWithSlider = ({ images }) => {
 
       {/* Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black ">
           <div className="relative w-full max-w-[100%] h-[100vh] py-12 px-16 bg-black bg-opacity-40 rounded-lg shadow-lg">
             <button
               onClick={closeModal}
@@ -105,7 +105,7 @@ const CustomModalWithSlider = ({ images }) => {
                     <img
                       src={`https://tripmenia.com/public/upload/${image}`}
                       alt={`pic ${index + 1}`}
-                      className="w-[50%] mx-auto"
+                      className="w-[84%] h-[80vh] mx-auto"
                     />
                   </div>
                 ))}

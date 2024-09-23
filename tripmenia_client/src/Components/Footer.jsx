@@ -1,4 +1,4 @@
-import React from "react";
+
 import HomeBottomBanner from "../Components/HomeBottomBanner";
 import googleReview from "../assets/icons/google-rating.webp";
 import tripAdvisor from "../assets/icons/tripadvisor.webp";
@@ -22,7 +22,7 @@ const Footer = () => {
                 >
                   @ Tripmenia
                 </a>
-                ,United Arab Emirates
+                ,United Arab Emirates . Website designed by: <a href="http://www.hatchconcepts.in" target="_blank">Hatch Concepts</a>
               </p>
             </div>
             <nav className="order-1 border-b border-gray-lighter pb-4 md:order-none md:border-b-0 md:pb-0">

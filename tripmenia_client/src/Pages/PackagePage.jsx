@@ -102,7 +102,7 @@ function PackagePage() {
       },
       {
         name: "WhatsApp",
-        url: `https://wa.me/+971525447735?text=${encodeURIComponent(link)}`,
+        url: `https://wa.me/+971555872560?text=${encodeURIComponent(link)}`,
         color: "rgb(3, 182, 3)",
         viewBox: "0 0 24 24",
         iconPath:
@@ -244,7 +244,7 @@ function PackagePage() {
                       planning straight to you.
                     </p>
                     <a
-                      href={`https://wa.me/+971525447735?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20I%20have%20queries%20about%20this%20package.%20Here%20is%20the%20link%3A%20${link}`}
+                      href={`https://wa.me/+971555872560?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20I%20have%20queries%20about%20this%20package.%20Here%20is%20the%20Package%3A%20${packageData?.packageName}`}
                       className="inline-flex items-center justify-center focus:outline-none transition duration-200 active:scale-90 text-base rounded-md bg-transparent border border-gray-300 hover:enabled:border-gray-1000 focus:enabled:border-gray-1000 focus:ring-gray-900/30 !border-gray-dark !px-4 !py-[8px] !font-bold text-gray-dark hover:bg-gray-dark hover:text-white hover:bg-black md:w-auto md:border-gray lg:!px-[28px] lg:!py-[14px]"
                     >
                       Chat now
@@ -480,7 +480,7 @@ function PackagePage() {
                       className="flex justify-center items-center gap-2"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href={`https://wa.me/+971525447735?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
+                      href={`https://wa.me/+971555872560?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20Package%3A%20${packageData?.packageName}`}
                     >
                       <IoLogoWhatsapp size={20} />
                       Book on WhatsApp
@@ -514,7 +514,7 @@ function PackagePage() {
           className="flex justify-center"
           target="_blank"
           rel="noopener noreferrer"
-          href={`https://wa.me/+971525447735?text=Hello%2C%20I'm%20interested%20in%20personalized%20vacation%20planning.%20Here%20is%20the%20link%3A%20${link}`}
+          href={`https://wa.me/+971555872560?text=Hello%2C%20I'm%20interested%20in%20personalized%20vacation%20planning.%20Here%20is%20the%20Package%3A%20${packageData?.packageName}`}
         >
           <img
             alt="whatsapp"
