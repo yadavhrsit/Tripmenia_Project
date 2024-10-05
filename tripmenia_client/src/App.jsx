@@ -6,12 +6,14 @@ import Layout from "./Layout";
 import Success from "./Pages/Success";
 import Failure from "./Pages/Failure";
 import NotFound from "./Pages/NotFound";
+import AboutUs from "./Pages/AboutUs";
 
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/:category" element={<Home />} />
         <Route path="/:category/:package_id" element={<PackagePage />} />
         <Route path="/explore" element={<Explore />} />
