@@ -150,6 +150,9 @@ function Header() {
             <Link to="/explore" className="text-lg">
               Explore
             </Link>
+            <Link to="/about-us" className="text-lg">
+              About Us
+            </Link>
           </div>
           <div className="md:hidden">
             <button className="text-lg mx-4" onClick={toggleModal}>
