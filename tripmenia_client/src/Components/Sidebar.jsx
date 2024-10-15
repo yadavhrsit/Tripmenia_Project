@@ -108,7 +108,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
             </li>
             <li>
               <a
-                href="#"
+                href="https://www.instagram.com/tripmenia_tourism/profilecard/?igsh=Z2w3Mzd2NGk5Y3lt"
                 className="flex items-center gap-3 px-10 py-4 text-base capitalize text-gray-700 hover:bg-gray-200"
               >
                 <FaInstagram />

@@ -5,6 +5,7 @@ import tripAdvisor from "../assets/icons/tripadvisor.webp";
 import mastercard from "../assets/icons/mastercard.png";
 import applepay from "../assets/icons/apple-pay.png";
 import googlepay from "../assets/icons/google-pay.png";
+import facebook from "../assets/icons/facebook.png";
 const Footer = () => {
   return (
     <>
@@ -109,7 +110,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     rel="noReferrer"
-                    href="https://www.instagram.com/"
+                    href="https://www.instagram.com/tripmenia_tourism/profilecard/?igsh=Z2w3Mzd2NGk5Y3lt"
                   >
                     <svg
                       xmlns="https://www.w3.org/2000/svg"
@@ -160,6 +161,19 @@ const Footer = () => {
                     </svg>
                   </a>
                 </li>
+                <li
+                  className="px-4 first:pl-0 last:pr-0 lg:px-6 sm:block hidden"
+                  style={{ listStyle: "none !important" }}
+                >
+                  <a
+                    target="_blank"
+                    rel="noReferrer"
+                    href="https://www.facebook.com/share/PfEHzTXK88gKV7Qf/"
+                  >
+                    <img src={facebook} width={30} height={30} alt="applepay" />
+                  </a>
+                </li>
+                
                 <li className="hidden md:block px-4 first:pl-0 last:pr-0 lg:px-6">
                   <a
                     className="block text-sm font-normal capitalize leading-4 text-primary 3xl:text-base"
