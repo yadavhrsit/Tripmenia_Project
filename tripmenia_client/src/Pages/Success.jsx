@@ -25,6 +25,25 @@ function Success() {
     fetchData();
   }, [id]);
 
+  useEffect(() => {
+    // Only insert the script if the booking is successful
+    if (bookingData && bookingData.verifiedBooking) {
+      const script = document.createElement('script');
+      script.innerHTML = `
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16741981240/YOaYCL-l-t0ZELi4ma8-',
+            'value': 1.0,
+            'currency': 'AED'
+        });
+      `;
+      document.body.appendChild(script);
+
+      // Clean up the script when the component unmounts or booking data changes
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [bookingData]);
   return (
     <div className="flex items-center justify-center py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-lg">
