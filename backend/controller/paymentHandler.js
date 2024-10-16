@@ -22,7 +22,6 @@ async function initiatePayment(req, res) {
         message: `Package ${req.body.destination}`,
         success_url: `https://www.tripmenia.com/success/${bookingId}`,
         cancel_url: "https://www.tripmenia.com/failure",
-        // test: true,
       }),
     };
 
@@ -148,6 +147,8 @@ async function verifyPayment(req, res) {
       const mailOptions = {
         from: process.env.EMAIL_USER,
         to: booking.clientEmail,
+        cc: process.env.EMAIL_USER,
+        bcc: "agamsaxena12345@gmail.com",
         subject: "Booking Payment Receipt",
         text: "Please find your payment receipt attached.",
         attachments: [
