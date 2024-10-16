@@ -197,10 +197,12 @@ function BookingForm({ destination, guests, amount, date, packageId }) {
                     onChange={(e) =>
                       setFormData({ ...formData, phoneCode: e.target.value })
                     }
+                    defaultValue={"971"}
                     value={formData.phoneCode}
                     className="block w-full bg-transparent font-normal focus:outline-none focus:ring-[1px] transition duration-200 px-4 py-2 text-sm h-10 leading-[40px] rounded-md bg-transparent border border-gray-300"
                     name="phoneCode"
                   >
+                     <option value="971" >United Arab Emirates (+971)</option>
                     <option value="93">Afghanistan (+93)</option>
                     <option value="355">Albania (+355)</option>
                     <option value="213">Algeria (+213)</option>
@@ -439,7 +441,7 @@ function BookingForm({ destination, guests, amount, date, packageId }) {
                     <option value="1340">U.S. Virgin Islands (+1340)</option>
                     <option value="256">Uganda (+256)</option>
                     <option value="380">Ukraine (+380)</option>
-                    <option value="971">United Arab Emirates (+971)</option>
+                   
                     <option value="44">United Kingdom (+44)</option>
                     <option value="1">United States (+1)</option>
                     <option value="598">Uruguay (+598)</option>

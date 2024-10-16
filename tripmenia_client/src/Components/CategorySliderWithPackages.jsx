@@ -60,6 +60,7 @@ function CategorySlider({ categoryId, categoryTitle, categoryDescription,selecte
           }}
           breakpoints={{
             640: {
+              speed:5000,
               slidesPerView: 1,
             },
             768: {

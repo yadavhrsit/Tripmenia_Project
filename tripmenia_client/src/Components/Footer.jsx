@@ -12,9 +12,9 @@ const Footer = () => {
       <HomeBottomBanner />
       <footer className="px-4 lg:px-6 xl:px-8 2xl:px-10">
         <div className="container-fluid mb-4">
-          <div className="flex flex-col md:mb-6 md:flex-row md:items-center md:justify-between md:border-t md:border-t-gray-lighter md:pt-6 lg:mb-8 lg:pt-8">
-            <div className="order-2 pt-4 md:order-none md:pt-0 lg:shrink-0">
-              <p className="text-center text-sm font-normal capitalize leading-6 text-gray-dark md:text-left 3xl:text-base">
+          <div className="flex flex-col md:mb-6  md:flex-row md:items-center md:justify-between md:border-t md:border-t-gray-lighter md:pt-6 lg:mb-8 lg:pt-8">
+            <div className="order-2 pb-5 md:pb-0 mb-6 md:order-none md:pt-0 lg:shrink-0">
+              <p className="text-center mb-12 md:mb-0  text-sm font-normal capitalize leading-6 text-gray-dark md:text-left 3xl:text-base">
                 <a
                   href="tripmenia.com"
                   rel="noReferrer"
@@ -32,7 +32,7 @@ const Footer = () => {
                   className="px-4 lg:px-6 list-none"
                   style={{ listStyle: "none !important" }}
                 >
-                  <a target="blank" rel="noReferrer" href="#">
+                  <a target="blank" rel="noReferrer" href="https://tinyurl.com/3ms6nupy">
                     <img
                       alt="google"
                       loading="lazy"
@@ -63,7 +63,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li
-                  className="px-2 md:px-4 flex gap-2 first:pl-0 last:pr-0 lg:px-6"
+                  className="px-2 md:w-auto md:justify-start md:mb-0 w-full justify-center mb-2 md:px-4 flex gap-2 first:pl-0 last:pr-0 lg:px-6"
                   style={{ listStyle: "none !important" }}
                 >
                   <svg
@@ -104,13 +104,13 @@ const Footer = () => {
                 </li>
 
                 <li
-                  className="px-4 first:pl-0 last:pr-0 lg:px-6 sm:block hidden"
+                  className="px-4 first:pl-0 last:pr-0 lg:px-6 "
                   style={{ listStyle: "none !important" }}
                 >
                   <a
                     target="_blank"
                     rel="noReferrer"
-                    href="https://www.instagram.com/tripmenia_tourism/profilecard/?igsh=Z2w3Mzd2NGk5Y3lt"
+                    href="https://www.instagram.com/tripmenia_tourism"
                   >
                     <svg
                       xmlns="https://www.w3.org/2000/svg"
@@ -162,7 +162,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li
-                  className="px-4 first:pl-0 last:pr-0 lg:px-6 sm:block hidden"
+                  className="px-4 first:pl-0 last:pr-0 lg:px-6 "
                   style={{ listStyle: "none !important" }}
                 >
                   <a

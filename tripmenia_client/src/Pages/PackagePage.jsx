@@ -480,7 +480,7 @@ function PackagePage() {
                       className="flex justify-center items-center gap-2"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href={`https://wa.me/+971555872560?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20Package%3A%20${packageData?.packageName}`}
+                      href={`https://wa.me/+971555872560?text=Hello%2C%20I'm%20interested%20in%20%3A%20${packageData?.packageName}`}
                     >
                       <IoLogoWhatsapp size={20} />
                       Book on WhatsApp
@@ -493,48 +493,55 @@ function PackagePage() {
         </div>
       </div>
 
+    
       <div className="fixed inset-x-0 bottom-0 z-50 flex w-full items-center justify-between bg-white px-4 py-3 border-t-2 sm:px-6 lg:hidden">
-        <div>
-          <span className="line-through text-[12px]">{packageData.price}</span>
-          <span>
-            <span className="ml-2 bg-green-500 text-white p-1 rounded text-[10px]">
-              Save{" "}
-              {parseInt(
-                ((packageData.price - packageData.specialPrice) /
-                  packageData.price) *
-                  100
-              )}
-            </span>
-          </span>
-          <p className="font-bold text-gray-dark">
-            AED {packageData.specialPrice} / ticket
-          </p>
-        </div>
-        <a
-          className="flex justify-center"
-          target="_blank"
-          rel="noopener noreferrer"
-          href={`https://wa.me/+971555872560?text=Hello%2C%20I'm%20interested%20in%20personalized%20vacation%20planning.%20Here%20is%20the%20Package%3A%20${packageData?.packageName}`}
-        >
-          <img
-            alt="whatsapp"
-            loading="lazy"
-            width="30"
-            height="30"
-            decoding="async"
-            data-img="1"
-            style={{ color: "transparent" }}
-            src={whatsapp}
-          />
-        </a>
-        <button
-          type="submit"
-          className="inline-flex font-medium items-center justify-center focus:outline-none transition duration-200 active:scale-90 px-8 py-2.5 text-base rounded-lg border border-transparent bg-gray-900 text-white hover:enabled:bg-gray-1000 focus:ring-gray-900/30 text-gray-0 font-semibold tracking-wide"
-          onClick={() => setPhoneOpenBookingForm(!openPhoneBookingForm)}
-        >
-          Book Now
-        </button>
-      </div>
+  <div>
+    <span className="line-through text-[12px]">{packageData.price}</span>
+    <span>
+      <span className="ml-2 bg-green-500 text-white p-1 rounded text-[10px]">
+        Save{" "}
+        {parseInt(
+          ((packageData.price - packageData.specialPrice) /
+            packageData.price) *
+            100
+        )}
+        %
+      </span>
+    </span>
+    <p className="font-bold text-gray-dark">
+      AED {packageData.specialPrice} / ticket
+    </p>
+  </div>
+
+  {/* Move WhatsApp icon to the right */}
+  <a
+    className="ml-auto flex justify-center" // Added ml-auto to push it to the right
+    target="_blank"
+    rel="noopener noreferrer"
+    href={`https://wa.me/+971555872560?text=Hello%2C%20I'm%20interested%20in%20personalized%20vacation%20planning.%20Here%20is%20the%20Package%3A%20${packageData?.packageName}`}
+  >
+    <img
+      alt="whatsapp"
+      loading="lazy"
+      width="30"
+      height="30"
+      decoding="async"
+      data-img="1"
+      style={{ color: "transparent" }}
+      src={whatsapp}
+      className="w-12 h-12 sm:w-16 sm:h-16" // Removed sm:ml-auto since it's not needed now
+    />
+  </a>
+
+  <button
+    type="submit"
+    className="inline-flex font-medium items-center justify-center focus:outline-none transition duration-200 active:scale-90 px-8 py-2.5 text-base rounded-lg border border-transparent bg-gray-900 text-white hover:enabled:bg-gray-1000 focus:ring-gray-900/30 text-gray-0 font-semibold tracking-wide"
+    onClick={() => setPhoneOpenBookingForm(!openPhoneBookingForm)}
+  >
+    Book Now
+  </button>
+</div>
+
       {openBookingForm && (
         <BookingForm
           destination={packageData.packageName}
