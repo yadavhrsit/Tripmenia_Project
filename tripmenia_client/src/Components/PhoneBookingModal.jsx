@@ -249,7 +249,7 @@ function PhoneBookingModal({
                   className="flex justify-center items-center gap-2"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={`https://wa.me/+971555872560?text=Hello%2C%20I'm%20interested%20in%20personalized%20itineraries%20and%20vacation%20planning.%20Here%20is%20the%20Package%3A%20${packageData?.packageName}`}
+                  href={`https://wa.me/+971555872560?text=Hello%2C%20I'm%20interested%20in%3A%20${packageData?.packageName}`}
                 >
                   <IoLogoWhatsapp size={20} />
                   Book on WhatsApp
