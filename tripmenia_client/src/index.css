@@ -15,3 +15,7 @@
 .slick-next{
   right: 0 !important;
 }
+
+.customPurple{
+  background-color: rgb(148,43,218);
+}

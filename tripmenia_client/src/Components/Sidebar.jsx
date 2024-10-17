@@ -99,7 +99,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
             </li>
             <li>
               <a
-                href="mailto:booking@tripmenia.com"
+                href="mailto:bookings@tripmenia.com"
                 className="flex items-center gap-3 px-10 py-4 text-base capitalize text-gray-700 hover:bg-gray-200"
               >
                 <FaEnvelope />
